@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HY89ERJR6L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HY89ERJR6L');
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href$=".pdf"], a[href$=".xlsx"]');
+    if (a) { gtag('event', 'assessment_download', { file_name: a.getAttribute('href'), link_text: a.textContent.trim() }); }
+  });
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>TriFlow Solutions Assessment · Brad Sebastian</title>
