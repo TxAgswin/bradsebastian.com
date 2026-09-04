@@ -2,172 +2,203 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HY89ERJR6L"></script>
-<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HY89ERJR6L');</script>
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-HY89ERJR6L"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HY89ERJR6L');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agentic AI operating record · Brad Sebastian</title>
-<meta name="description" content="The multi-agent AI system Brad Sebastian designed and operates: architecture, governance, skills, gates, and what it has produced.">
+<meta name="description" content="The operating record of a production multi-agent AI system Brad Sebastian designed and runs: architecture, governance, skills, gates, and findings.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='44' fill='%23201E1D'/%3E%3Cg fill='none' stroke-width='28' stroke-linejoin='round'%3E%3Cpath d='M 44 148 L 44 74 A 24 24 0 0 1 68 50 L 148 50' stroke='%231E7F5C'/%3E%3Cpath d='M 156 56 L 156 130 A 24 24 0 0 1 132 154 L 52 154' stroke='%239BEB58'/%3E%3C/g%3E%3Ctext x='100' y='127' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='76' fill='%23F3F2F0'%3EB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap">
 <style>
-  :root{--ground:#F3F2F0;--white:#fff;--ink:#201E1D;--text-2:#615C58;--text-3:#918B86;--line:#DEDCD9;--line-2:#C8C4C0;--lime:#9BEB58;--live:#3FBB63;--deep:#1E7F5C;--forest:#0E5040;--mint:#EEF7EC;--sh:0 1px 2px rgba(32,30,29,.05),0 6px 16px rgba(32,30,29,.06)}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--ground);color:var(--ink);font-family:Archivo,system-ui,Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:var(--deep);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
-  header.top{border-bottom:1px solid var(--line);background:rgba(243,242,240,.9);position:sticky;top:0;backdrop-filter:blur(14px);z-index:5}
-  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;color:var(--ink)}
-  .brand svg{width:32px;height:32px}
-  .brand b{font-size:13px;letter-spacing:.02em;text-transform:uppercase}
-  .brand small{display:block;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-3)}
-  .top nav a{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-2);margin-left:22px}
-  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--deep)}
-  .eyebrow::before{content:"";width:22px;height:1px;background:var(--live)}
-  .hero{padding:56px 0 24px}
-  .hero h1{margin:14px 0 0;font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
-  .hero h1 span{display:block;background:linear-gradient(90deg,var(--forest),var(--deep) 45%,var(--live));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p{margin:20px 0 0;max-width:62ch;font-size:18px;color:var(--text-2)}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:32px 0 8px}
-  @media (max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
-  .stat{background:var(--white);border:1px solid rgba(32,30,29,.05);border-radius:16px;box-shadow:var(--sh);padding:18px 18px 14px}
-  .stat b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1}
-  .stat span{display:block;margin-top:8px;font-size:12px;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase}
-  section{padding:40px 0 0}
-  section h2{margin:12px 0 0;font-size:clamp(24px,3vw,34px);letter-spacing:-.03em;line-height:1.1}
-  section .lede{margin:12px 0 0;max-width:66ch;color:var(--text-2)}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:22px}
-  .card{background:var(--white);border:1px solid rgba(32,30,29,.05);border-radius:18px;box-shadow:var(--sh);padding:24px 24px 22px}
-  .card h3{margin:0;font-size:16px;letter-spacing:-.01em}
-  .card .k{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin-bottom:8px;font-weight:600}
-  .card p{margin:8px 0 0;font-size:14.5px;color:var(--text-2)}
-  .card code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:var(--mint);color:var(--forest);padding:1px 6px;border-radius:6px}
-  .rules{margin-top:22px;background:var(--white);border:1px solid rgba(32,30,29,.05);border-radius:18px;box-shadow:var(--sh);padding:8px 26px}
-  .rule{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line);font-size:14.5px}
-  .rule:first-child{border-top:0}
-  .rule b{font-size:14px;letter-spacing:-.01em}
-  .rule p{margin:0;color:var(--text-2)}
-  .rule .inc{margin-top:6px;font-size:13px;color:var(--text-3)}
-  .rule .inc::before{content:"Incident: ";color:var(--deep);font-weight:600}
-  @media (max-width:640px){.rule{grid-template-columns:1fr;gap:6px}}
-  .list{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px;max-width:76ch}
-  .list li{position:relative;padding-left:22px;font-size:15px;color:var(--text-2)}
-  .list li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--live)}
-  .list li b{color:var(--ink);font-weight:600}
-  .note{margin-top:22px;font-size:13.5px;color:var(--text-3);max-width:76ch}
-  footer{margin-top:64px;background:#1B1A19;color:#F3F2F0;padding:36px 0}
-  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#A19C97}
-  footer a{color:#F3F2F0}
+:root{--ground:#F3F2F0;--white:#fff;--ink:#201E1D;--t2:#615C58;--t3:#918B86;--line:#DEDCD9;--line2:#C8C4C0;
+--lime:#9BEB58;--live:#3FBB63;--deep:#1E7F5C;--forest:#0E5040;--mint:#EEF7EC;
+--sh:0 1px 2px rgba(32,30,29,.05),0 6px 16px rgba(32,30,29,.06);--font:"Archivo",system-ui,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--live);outline-offset:3px;border-radius:6px}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--deep)}
+.top{position:sticky;top:0;z-index:30;background:rgba(243,242,240,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand svg{width:34px;height:34px}
+.brand b{display:block;font-size:13.5px;font-weight:700;letter-spacing:.02em;line-height:1.1;text-transform:uppercase}
+.brand small{display:block;white-space:nowrap;font-size:8.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);line-height:1.2;margin-top:2px}
+.nav{display:flex;gap:26px}
+.nav a{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--t2);padding:6px 0;border-bottom:1px solid transparent;white-space:nowrap}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+@media (max-width:900px){.nav{display:none}}
+.hero{position:relative;overflow:hidden}
+.hero .wrap{padding-top:76px;padding-bottom:40px;position:relative}
+.hero h1{margin-top:22px;font-size:clamp(36px,5.6vw,64px);line-height:1.04;letter-spacing:-.04em;max-width:20ch}
+.hero h1 .grad{background:linear-gradient(90deg,var(--forest) 0%,var(--deep) 45%,var(--live) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin-top:24px;font-size:16.5px;line-height:1.7;color:var(--t2);max-width:72ch}
+.contours{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.contours rect{fill:none;stroke:#E6E4E1;stroke-width:1}
+.stats{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px 40px}
+.stat .n{font-size:clamp(24px,2.6vw,34px);font-weight:700;letter-spacing:-.03em;color:var(--deep)}
+.stat .l{margin-top:6px;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);line-height:1.5}
+.statnote{margin-top:22px;font-size:12.5px;color:var(--t3)}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+.sec{padding:72px 0 0}
+.sec:last-of-type{padding-bottom:88px}
+.sh{max-width:70ch;margin-bottom:30px}
+.sh h2{margin-top:12px;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-.035em}
+.sh p{margin-top:12px;font-size:16px;color:var(--t2);max-width:62ch}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--white);border:1px solid rgba(32,30,29,.05);border-radius:20px;box-shadow:var(--sh);padding:26px 28px}
+.card .k{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--live);margin-bottom:8px}
+.card h3{font-size:17.5px;letter-spacing:-.015em}
+.card p{margin-top:9px;font-size:14.5px;line-height:1.65;color:var(--t2)}
+.card p b{color:var(--ink);font-weight:600}
+@media (max-width:760px){.cards{grid-template-columns:1fr}}
+.list .card{margin-bottom:14px}
+.rule{border-left:3px solid var(--live);padding:2px 0 2px 16px;margin-top:12px;font-size:14px;color:var(--t2)}
+.rule b{color:var(--ink);font-weight:600}
+footer{background:#1B1A19;color:#F3F2F0;margin-top:80px}
+footer .wrap{padding:44px 0 30px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer a{color:#F3F2F0;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid transparent}
+footer a:hover{border-bottom-color:var(--live)}
+footer .c{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7E7974}
+.rise{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <a class="brand" href="https://bradsebastian.com/"><svg viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke-width="30" stroke-linejoin="round"><path d="M 40 150 L 40 70 A 26 26 0 0 1 66 44 L 150 44" stroke="#1E7F5C"/><path d="M 160 52 L 160 132 A 26 26 0 0 1 134 158 L 50 158" stroke="#3FBB63"/></g><text x="100" y="128" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="700" font-size="78" fill="#201E1D">B</text></svg><span><b>Brad Sebastian</b><small>Agentic AI operating record</small></span></a>
-  <nav><a href="#architecture">Architecture</a><a href="#governance">Governance</a><a href="#skills">Skills</a><a href="#gates">Gates</a><a href="#assessment">TriFlow</a><a href="https://bradsebastian.com/">Home</a></nav>
-</div></header>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Brad Sebastian — home">
+      <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="mB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E7F5C"/><stop offset="1" stop-color="#0E5040"/></linearGradient><linearGradient id="mF" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3FBB63"/><stop offset="1" stop-color="#9BEB58"/></linearGradient></defs><g fill="none" stroke-width="30" stroke-linejoin="round"><path d="M 40 150 L 40 70 A 26 26 0 0 1 66 44 L 150 44" stroke="url(#mB)"/><path d="M 160 52 L 160 132 A 26 26 0 0 1 134 158 L 50 158" stroke="url(#mF)"/></g><text x="100" y="128" text-anchor="middle" font-family="Archivo,system-ui,Arial,sans-serif" font-weight="700" font-size="78" fill="#201E1D">B</text></svg>
+      <span><b>Brad Sebastian</b><small>Agentic AI Operating Record</small></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#architecture">Architecture</a>
+      <a href="#governance">Governance</a>
+      <a href="#skills">Skills</a>
+      <a href="#gates">Gates</a>
+      <a href="#findings">Findings</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
 
 <main>
-<div class="wrap">
-  <div class="hero">
-    <div class="eyebrow">Built and operated since July 2026</div>
-    <h1>A commercial pipeline run by agents,<span>governed by a person.</span></h1>
-    <p>This is the record of a multi-agent AI system I designed, built and run every day. It manages a live pipeline end to end, reaches my email, files, browser and cloud storage through Model Context Protocol, and cannot send anything to another human being until I have read that item and said go. It is the same architecture a company would use to put AI inside its commercial engine, at one-person scale, with me as platform owner, product manager and governance function.</p>
-    <div class="stats">
-      <div class="stat"><b>54</b><span>Opportunities tracked</span></div>
-      <div class="stat"><b>49</b><span>Vetted contacts</span></div>
-      <div class="stat"><b>191</b><span>Logged activities</span></div>
-      <div class="stat"><b>25 + 24</b><span>Résumé and cover-letter generators</span></div>
-      <div class="stat"><b>~2,500</b><span>Lines in the dashboard builder</span></div>
-      <div class="stat"><b>100%</b><span>Outbound actions gated by approval</span></div>
-    </div>
-    <p class="note">Figures as of 1 September 2026. Every claim on this page can be shown live from the files that produce it.</p>
-  </div>
-
-  <section id="architecture">
-    <div class="eyebrow">Architecture</div>
-    <h2>Six layers, one record of truth</h2>
-    <p class="lede">The design principle is that files, not conversations, hold the state. A chat is disposable. The record is not.</p>
-    <div class="grid">
-      <div class="card"><div class="k">Data</div><h3>One record of truth</h3><p>Every opportunity is a structured record: company, role, source, status, a step ladder from Analyzed to Accepted with dates, contacts with tier and send state, an activity log, signals and flags. The spreadsheet tracker is an export regenerated from the record, never a second copy of the truth.</p></div>
-      <div class="card"><div class="k">Generation</div><h3>Documents from code</h3><p>Résumés and cover letters are produced by generator scripts built on a master, one per role, from a single verified job-history file. A fact corrected once propagates to every document on rebuild. Twenty-five résumé generators and twenty-four cover-letter generators exist today.</p></div>
-      <div class="card"><div class="k">Gates</div><h3>Nothing ships unchecked</h3><p>Four gates run on every document before I see it: a written quality gate, an ATS parser gate, a mechanical provenance gate that fails a document on any unverified tool, figure or claim, and a cold read as the hiring manager. Details below.</p></div>
-      <div class="card"><div class="k">Presentation</div><h3>A self-rebuilding dashboard</h3><p>A 2,500-line builder renders the record into a single self-contained application: pipeline stages, momentum-based hot detection from the last five days of activity, weighted scoring, next actions phrased as people and meetings, embedded documents, and one-click commands that hand a task back to an agent. Nobody edits it by hand.</p></div>
-      <div class="card"><div class="k">Skills</div><h3>Written procedures the agents load by name</h3><p>Each skill is a procedure with hard rules: what to do, in what order, and what never to do. The agent loads one by name and follows it. The library is listed below.</p></div>
-      <div class="card"><div class="k">Integration and memory</div><h3>MCP, and a rulebook written when the rule is learned</h3><p>Agents reach Gmail, Google Drive, Chrome, Microsoft 365 and the local file system through Model Context Protocol. A standing rulebook records every ruling the day it is made, with the incident that caused it; a session-state file is what any new session reads first.</p></div>
+  <section class="hero">
+    <svg class="contours" viewBox="0 0 1400 640" preserveAspectRatio="xMaxYMin slice" aria-hidden="true"><g>
+      <rect x="730" y="-160" width="820" height="760" rx="150"/><rect x="774" y="-116" width="732" height="672" rx="141"/><rect x="818" y="-72" width="644" height="584" rx="132"/><rect x="862" y="-28" width="556" height="496" rx="123"/><rect x="906" y="16" width="468" height="408" rx="114"/><rect x="950" y="60" width="380" height="320" rx="105"/><rect x="994" y="104" width="292" height="232" rx="96"/><rect x="1038" y="148" width="204" height="144" rx="87"/>
+    </g></svg>
+    <div class="wrap">
+      <div class="eyebrow rise in">Built and operated since July 2026</div>
+      <h1 class="rise in">A commercial operation run by agents,<br><span class="grad">governed by a person.</span></h1>
+      <p class="sub rise in">This is the record of a production multi-agent AI system I designed, built and run every day. It manages a live commercial workload end to end, reaches my email, files, browser and cloud storage through Model Context Protocol, and cannot send anything to another human being until I have read that item and said go. It is the same architecture a company would use to put AI inside its commercial engine, at one-person scale, with me as platform owner, product manager and governance function.</p>
+      <div class="stats rise in">
+        <div class="stat"><div class="n">6</div><div class="l">Layers, one record of truth</div></div>
+        <div class="stat"><div class="n">100%</div><div class="l">Outbound actions gated by approval</div></div>
+        <div class="stat"><div class="n">4</div><div class="l">Gates on every outbound document</div></div>
+        <div class="stat"><div class="n">~2,500</div><div class="l">Lines in the presentation builder</div></div>
+      </div>
+      <p class="statnote">Every claim on this page can be shown live from the files that produce it.</p>
     </div>
   </section>
 
-  <section id="governance">
-    <div class="eyebrow">Governance</div>
-    <h2>The part that separates running a platform from using a chatbot</h2>
-    <div class="rules">
-      <div class="rule"><b>Approval on every outbound action</b><div><p>No message, application or email leaves without me reading that specific item and approving it in the moment. No batch approvals, no standing permission. The dashboard can queue a send; only my approval of that message executes it.</p></div></div>
-      <div class="rule"><b>A written trust boundary</b><div><p>The agents do not submit applications autonomously; I drive the portal. Full-agentic runs are tested only on opportunities I designate as expendable, at my initiation. Trust is earned first; the record has to show the system deserves more room before it gets it.</p></div></div>
-      <div class="rule"><b>Rules come from incidents</b><div><p>The rulebook was not written in advance. It is a log of real failures converted into standing rules, each with the incident attached.</p><p class="inc">A tool name inferred from context reached twelve résumés before I caught that I had never used it. Rule: every tool comes from a verified list that only I can edit.</p><p class="inc">An email built with embedded images rendered blank in Gmail. Rule: build for the delivery platform and verify in the destination before sending.</p><p class="inc">A phrase from an unrelated thread contaminated a strategy brief. Rule: high-stakes work gets a clean session with only its own material in it.</p></div></div>
-      <div class="rule"><b>A challenged term is a removed term</b><div><p>If I question where a claim came from, it comes off immediately and returns only if I say keep. Leaving it in pending a ruling is how errors ship twice.</p></div></div>
-      <div class="rule"><b>Optimize for the meeting</b><div><p>My own evidence says live conversations convert and cold portals stall, so the system is tuned to earn meetings rather than to win on paper: every opportunity carries the shortest path to a human, and unsent outreach outranks ready applications. That is a strategic decision made by the person, from evidence, and no prompt made it.</p></div></div>
-      <div class="rule"><b>Accuracy over warmth</b><div><p>An unverified personal connection is never used to make a note warmer. A clean professional note beats a warm note with a false claim in it.</p></div></div>
+  <section class="sec" id="architecture">
+    <div class="wrap">
+      <div class="sh rise"><div class="eyebrow">Architecture</div><h2>Six layers, one record of truth.</h2>
+      <p>The design principle is that files, not conversations, hold the state. A chat is disposable. The record is not.</p></div>
+      <div class="cards">
+        <div class="card rise"><div class="k">Data</div><h3>One record of truth</h3><p>Every engagement is a structured record: organization, status, a step ladder with dates, contacts with tier and send state, an activity log, signals and flags. Exports are regenerated from the record, never kept as a second copy of the truth.</p></div>
+        <div class="card rise"><div class="k">Generation</div><h3>Documents from code</h3><p>Outbound documents are produced by generator scripts built on a master, one per engagement, from a single verified source file. A fact corrected once propagates to every document on rebuild.</p></div>
+        <div class="card rise"><div class="k">Gates</div><h3>Nothing ships unchecked</h3><p>Four gates run on every outbound document before I see it: a written quality gate, a formatting and parser gate, a mechanical provenance gate that fails a document on any unverified tool, figure or claim, and a cold read as the recipient. Details below.</p></div>
+        <div class="card rise"><div class="k">Presentation</div><h3>A self-rebuilding dashboard</h3><p>A 2,500-line builder renders the record into a single self-contained application: stages, momentum-based hot detection from the last five days of activity, weighted scoring, next actions phrased as people and meetings, embedded documents, and one-click commands that hand a task back to an agent. Nobody edits it by hand.</p></div>
+        <div class="card rise"><div class="k">Skills</div><h3>Written procedures the agents load by name</h3><p>Each skill is a procedure with hard rules: what to do, in what order, and what never to do. The agent loads one by name and follows it. The library is described below.</p></div>
+        <div class="card rise"><div class="k">Integration and memory</div><h3>MCP, and a rulebook written when the rule is learned</h3><p>Agents reach Gmail, Google Drive, Chrome, Microsoft 365 and the local file system through Model Context Protocol. A standing rulebook records every ruling the day it is made, with the incident that caused it; a session-state file is what any new session reads first.</p></div>
+      </div>
     </div>
   </section>
 
-  <section id="skills">
-    <div class="eyebrow">Skills library</div>
-    <h2>Reusable agent procedures I wrote</h2>
-    <div class="grid">
-      <div class="card"><h3><code>job-application-kit</code></h3><p>Posting capture, fit and salary analysis, an ATS résumé tailored to the posting, a custom cover letter, a tracker row and a dashboard entry, then the gates.</p></div>
-      <div class="card"><h3><code>targeted-networking-campaign</code></h3><p>A tiered contact list for a company, verified profile by profile, only real connection points, drafted notes in my voice. Hard rules: never a same-title peer, never over the hiring manager's head, never an unverified affinity claim, warm paths before cold notes.</p></div>
-      <div class="card"><h3><code>interview-rehearsal</code></h3><p>Compresses everything known about an interview into a roleplay brief for a separate session, then scores the transcript against a fixed rubric so repeat rehearsals are comparable.</p></div>
-      <div class="card"><h3><code>update-dashboard</code></h3><p>Rebuilds every document whose generator changed, re-runs the gates, re-embeds the PDFs and refreshes the dashboard.</p></div>
-      <div class="card"><h3><code>ai-findings-share</code></h3><p>Researches a question and sends the findings as a formatted email, behind a send gate, with a disclosure footer.</p></div>
-      <div class="card"><h3><code>monte-carlo-document-check</code></h3><p>A review-and-revise loop for anything going to a third party: a cold-read agent scores the document as the recipient would, an editor agent applies the edit list under hard rules, the outputs rebuild and verify, and the next round starts from the new version until the scores plateau.</p></div>
-      <div class="card"><h3><code>skill-creator</code> and the document skills</h3><p>Used to write and revise the procedures above, plus the standard document skills for Word, PDF, PowerPoint and Excel output.</p></div>
+  <section class="sec" id="governance">
+    <div class="wrap">
+      <div class="sh rise"><div class="eyebrow">Governance</div><h2>The part that separates running a platform from using a chatbot.</h2></div>
+      <div class="cards">
+        <div class="card rise"><h3>Approval on every outbound action</h3><p>No message, document or email leaves without me reading that specific item and approving it in the moment. No batch approvals, no standing permission. The dashboard can queue a send; only my approval of that item executes it.</p></div>
+        <div class="card rise"><h3>A written trust boundary</h3><p>The agents do not act on third-party systems autonomously; I drive every submission myself. Full-agentic runs are tested only on work I designate as expendable, at my initiation. Trust is earned first; the record has to show the system deserves more room before it gets it.</p></div>
+        <div class="card rise"><h3>Rules come from incidents</h3><p>The rulebook was not written in advance. It is a log of real failures converted into standing rules, each with the incident attached.</p>
+          <div class="rule"><b>A tool name inferred from context</b> reached a dozen documents before I caught that I had never used it. Rule: every tool comes from a verified list that only I can edit.</div>
+          <div class="rule"><b>An email built with embedded images</b> rendered blank in Gmail. Rule: build for the delivery platform and verify in the destination before sending.</div>
+          <div class="rule"><b>A phrase from an unrelated thread</b> contaminated a strategy brief. Rule: high-stakes work gets a clean session with only its own material in it.</div>
+        </div>
+        <div class="card rise"><h3>A challenged term is a removed term</h3><p>If I question where a claim came from, it comes off immediately and returns only if I say keep. Leaving it in pending a ruling is how errors ship twice.</p></div>
+        <div class="card rise"><h3>Optimize for the meeting</h3><p>My own evidence says live conversations convert and cold submissions stall, so the system is tuned to earn meetings: every engagement carries the shortest path to a human, and unsent outreach outranks finished paperwork. That is a strategic decision made by the person, from evidence, and no prompt made it.</p></div>
+        <div class="card rise"><h3>Accuracy over warmth</h3><p>An unverified personal connection is never used to make a note warmer. A clean professional note beats a warm note with a false claim in it.</p></div>
+      </div>
     </div>
   </section>
 
-  <section id="gates">
-    <div class="eyebrow">Gates</div>
-    <h2>What runs before I see a document</h2>
-    <ul class="list">
-      <li><b>Quality gate.</b> A written truth check (every tool, company, number and date must trace to me or to the verified history file), tense and date check, American spelling, voice rules. Each rule cites the incident that caused it.</li>
-      <li><b>ATS gate.</b> An in-house parser check: single column, standard headings, no tables or text boxes, consistent dates, text-layer PDF, metadata. House rule: fix the detector, never the truth.</li>
-      <li><b>Provenance gate.</b> A mechanical fabrication check that fails a PDF on banned or false terms, tools not on the verified list, paraphrase drift in company descriptors, present-tense claims about a past employer, and stale figures.</li>
-      <li><b>Hiring-manager pass.</b> The rendered PDF read cold as the person who will receive it, confirming every claimable requirement is visibly answered on the page.</li>
-    </ul>
+  <section class="sec" id="skills">
+    <div class="wrap">
+      <div class="sh rise"><div class="eyebrow">Skills library</div><h2>Reusable agent procedures I wrote.</h2>
+      <p>Described here in general terms; the procedures themselves are working files, not marketing.</p></div>
+      <div class="cards">
+        <div class="card rise"><h3>Engagement kit</h3><p>Captures a new engagement, runs the analysis, produces the tailored documents from the generators, logs the record, updates the dashboard, then runs the gates.</p></div>
+        <div class="card rise"><h3>Targeted outreach</h3><p>A tiered contact list for an organization, verified profile by profile, only real connection points, drafted notes in my voice. Hard rules: warm paths before cold notes, and never an unverified affinity claim.</p></div>
+        <div class="card rise"><h3>Rehearsal and scoring</h3><p>Compresses everything known about a high-stakes conversation into a roleplay brief for a separate session, then scores the transcript against a fixed rubric so repeat rehearsals are comparable.</p></div>
+        <div class="card rise"><h3>monte-carlo-document-check</h3><p>A review-and-revise loop for anything going to a third party: a cold-read agent scores the document as the recipient would, an editor agent applies the edit list under hard rules, the outputs rebuild and verify, and the next round starts from the new version until the scores plateau.</p></div>
+        <div class="card rise"><h3>update-dashboard</h3><p>Rebuilds every document whose generator changed, re-runs the gates, re-embeds the outputs and refreshes the dashboard.</p></div>
+        <div class="card rise"><h3>Research and share</h3><p>Researches a question and sends the findings as a formatted email, behind a send gate, with a disclosure footer. Plus skill-creator and the standard document skills for Word, PDF, PowerPoint and Excel output.</p></div>
+      </div>
+    </div>
   </section>
 
-  <section id="lessons">
-    <div class="eyebrow">Findings</div>
-    <h2>What I have learned about where these systems fail</h2>
-    <ul class="list">
-      <li><b>Fabrication happens by paraphrase, not invention.</b> The model rewords a verified fact into nearby language that echoes what the reader wants. The defense is a verified vocabulary and a mechanical check, not a reminder to be careful.</li>
-      <li><b>Confidence is not evidence.</b> Word counts stated without counting; figures that trace to nothing. Anything that matters gets measured.</li>
-      <li><b>Design from description does not work.</b> Taste cannot be specified in prose. Give the tool the real assets and a written brief, then let a purpose-built tool do the visual work.</li>
-      <li><b>The platform is part of the deliverable.</b> An artifact that renders where it was made and fails where it lands is a failure. Test in the destination.</li>
-      <li><b>Long contexts contaminate.</b> A session carrying weeks of unrelated work leaks vocabulary across threads. High-stakes work gets a clean room and a handoff document.</li>
-      <li><b>The human owns the facts, the strategy and the go decision.</b> Every substantive correction in this system has come from me knowing my own story better than the model does, and the system is built so that my correction wins immediately.</li>
-    </ul>
+  <section class="sec" id="gates">
+    <div class="wrap">
+      <div class="sh rise"><div class="eyebrow">Gates</div><h2>What runs before I see a document.</h2></div>
+      <div class="list">
+        <div class="card rise"><h3>Quality gate</h3><p>A written truth check: every tool, company, number and date must trace to me or to the verified source file. Tense and date check, American spelling, voice rules. Each rule cites the incident that caused it.</p></div>
+        <div class="card rise"><h3>Formatting and parser gate</h3><p>An in-house parser check: single column, standard headings, no tables or text boxes, consistent dates, text-layer PDF, metadata. House rule: fix the detector, never the truth.</p></div>
+        <div class="card rise"><h3>Provenance gate</h3><p>A mechanical fabrication check that fails a document on banned or false terms, tools not on the verified list, paraphrase drift in descriptors, and stale figures.</p></div>
+        <div class="card rise"><h3>Recipient pass</h3><p>The rendered document read cold as the person who will receive it, confirming that everything it needs to answer is visibly answered on the page.</p></div>
+      </div>
+    </div>
   </section>
 
-  <section id="assessment">
-    <div class="eyebrow">Applied</div>
-    <h2>How the TriFlow assessment was produced</h2>
-    <p class="lede">The written responses and the case study submitted on 2 September 2026 were built inside this system. What ran, specifically:</p>
-    <ul class="list">
-      <li><b>A clean room.</b> The work ran in a dedicated session seeded with a handoff document containing only TriFlow material: the assessment verbatim, the nine exhibits, the email trail, and a single résumé as the only permitted pool of claims about my experience.</li>
-      <li><b>A workbook first.</b> Every input in the case-study workbook is cited to its exhibit; every assumption is labeled A1 to A16 and highlighted; 233 live formulas, recalculated and checked for errors on every rebuild. The memo was written from the workbook, not the other way round.</li>
-      <li><b>A verification script.</b> Every rebuild of the documents runs a script that enforces the page limit, word limits, a punctuation rule, a vocabulary rule, and a check that nothing in the text speaks to anyone but the reader. Nothing shipped without it passing.</li>
-      <li><b>Cold-read review.</b> Fresh agents with no context on me read the submission as the panel's own AI would, scored it against the published six-dimension rubric with two independent scorers, spot-checked the arithmetic against the exhibits, and wrote a numbered edit list.</li>
-      <li><b>Guarded editing.</b> A separate editor agent applied each list under hard rules: never add a fact about my experience, never change a number, no new claims, and every escalated number handed back to me to fix in the workbook by hand.</li>
-      <li><b>The loop.</b> Three full review-and-revise rounds and a final scoring pass. The loop found and fixed a budget miscount, a margin applied to the wrong line, a missing crew-week allocation, and an escalator booked at delivery margin when it is pure price. The case-study score rose from 3.98 to 4.25 on the panel's own rubric, as read by a cold agent.</li>
-      <li><b>Delivery in the destination.</b> The documents were rendered, checked page by page, and published to a page on this site so the panel reads a link that stays current, with server-side and client-side measurement on the page.</li>
-    </ul>
-    <p class="note">The judgments, the stories and the numbers I chose to stake the plan on are mine. The system's job was to make sure they were checked.</p>
+  <section class="sec" id="findings">
+    <div class="wrap">
+      <div class="sh rise"><div class="eyebrow">Findings</div><h2>What I have learned about where these systems fail.</h2></div>
+      <div class="cards">
+        <div class="card rise"><h3>Fabrication happens by paraphrase, not invention</h3><p>The model rewords a verified fact into nearby language that echoes what the reader wants. The defense is a verified vocabulary and a mechanical check, not a reminder to be careful.</p></div>
+        <div class="card rise"><h3>Confidence is not evidence</h3><p>Word counts stated without counting; figures that trace to nothing. Anything that matters gets measured.</p></div>
+        <div class="card rise"><h3>Design from description does not work</h3><p>Taste cannot be specified in prose. Give the tool the real assets and a written brief, then let a purpose-built tool do the visual work.</p></div>
+        <div class="card rise"><h3>The platform is part of the deliverable</h3><p>An artifact that renders where it was made and fails where it lands is a failure. Test in the destination.</p></div>
+        <div class="card rise"><h3>Long contexts contaminate</h3><p>A session carrying weeks of unrelated work leaks vocabulary across threads. High-stakes work gets a clean room and a handoff document.</p></div>
+        <div class="card rise"><h3>The human owns the facts, the strategy and the go decision</h3><p>Every substantive correction in this system has come from me knowing my own story better than the model does, and the system is built so that my correction wins immediately.</p></div>
+      </div>
+    </div>
   </section>
-</div>
 </main>
 
-<footer><div class="wrap"><span>Brad Sebastian · <a href="https://bradsebastian.com/">bradsebastian.com</a> · 713-256-1683</span><span><a href="https://www.linkedin.com/in/brad-sebastian">LinkedIn</a></span></div></footer>
+<footer>
+  <div class="wrap">
+    <a href="/">bradsebastian.com</a>
+    <span class="c">© 2026 Brad Sebastian</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if ('IntersectionObserver' in window) {
+    var ro = new IntersectionObserver(function(es){ es.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); ro.unobserve(en.target); } }); }, {rootMargin:'0px 0px -8% 0px', threshold:.08});
+    document.querySelectorAll('.rise:not(.in)').forEach(function(el){ ro.observe(el); });
+  } else {
+    document.querySelectorAll('.rise').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
 </body>
 </html>
