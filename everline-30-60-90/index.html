@@ -32,44 +32,95 @@
   nav{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 0}
   nav a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.4);padding:8px 14px;border-radius:6px;font-size:14px;font-weight:600}
   nav a.primary{background:#fff;color:var(--navy);border-color:#fff}
-  main{padding:26px 24px 56px}
-  figure{margin:0 0 26px}
-  figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;
-             background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05),0 14px 32px rgba(0,0,0,.08)}
-  figcaption{margin-top:9px;font-size:13.5px;color:var(--muted);display:flex;align-items:baseline;gap:11px}
-  figcaption .sn{font-size:11.5px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
-  .tail{border-top:1px solid var(--line);margin-top:8px;padding-top:18px;font-size:14px;color:var(--muted);line-height:1.6;max-width:78ch}
-  footer{padding:18px 24px 44px;font-size:13px;color:var(--muted)}
+  main{padding:22px 24px 40px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:22px}
+  .card h2{margin:0;padding:14px 18px;font-size:15px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .card h2 .sn{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--gold);margin-right:11px}
+  .card img{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
+  .note{font-size:15px;color:var(--ink);padding:15px 18px 17px;line-height:1.6}
+  .note .nl{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5px}
+  footer{padding:18px 24px 40px;font-size:13px;color:var(--muted)}
   footer a{color:var(--navy)}
-  @media (max-width:680px){main{padding:18px 14px 40px} h1{font-size:23px}}
+  @media (max-width:680px){main{padding:16px 12px 34px} h1{font-size:23px} .note{font-size:14.5px}}
 </style>
 </head>
 <body>
 <header><div class="wrap">
   <div class="kicker">Marketing Manager &middot; Thirty, sixty, ninety</div>
   <h1>EverLine first quarter plan</h1>
-  <div class="sub">Prepared for Michael Morrow. Thirteen slides on what the marketing stack looks like today, what I would build on it, and how that turns into a scored list of gas-fired accounts on three sellers&#39; desks every week.</div>
+  <div class="sub">Prepared for Michael Morrow. Thirteen slides on what the marketing stack looks like today, what I would build on it, and how that turns into a scored list of gas-fired accounts on three sellers&#39; desks every week. My note to you sits under each slide.</div>
   <nav>
-    <a class="primary" href="EverLine_First_Quarter_Plan_Brad_Sebastian.pdf">Download the deck (PDF)</a>
-    <a href="EverLine_First_Quarter_Plan_with_notes_Brad_Sebastian.pdf">Version with my notes (PDF)</a>
+    <a class="primary" href="EverLine_First_Quarter_Plan_with_notes_Brad_Sebastian.pdf">Download the plan (PDF)</a>
+    <a href="EverLine_First_Quarter_Plan_Brad_Sebastian.pdf">Slides only (PDF)</a>
     <a href="https://bradsebastian.com">bradsebastian.com</a>
   </nav>
 </div></header>
 <main><div class="wrap">
-  <figure><img src="slides/slide-01.jpg" alt="Title" loading="lazy" width="1600" height="900"><figcaption><span class="sn">01</span>Title &middot; Building the engine</figcaption></figure>
-  <figure><img src="slides/slide-02.jpg" alt="Current state" loading="lazy" width="1600" height="900"><figcaption><span class="sn">02</span>Current state &middot; The stack and what it is doing today</figcaption></figure>
-  <figure><img src="slides/slide-03.jpg" alt="Proposed state" loading="lazy" width="1600" height="900"><figcaption><span class="sn">03</span>Proposed state &middot; The stack and the pipeline</figcaption></figure>
-  <figure><img src="slides/slide-04.jpg" alt="The evidence" loading="lazy" width="1600" height="900"><figcaption><span class="sn">04</span>The evidence &middot; What search says right now</figcaption></figure>
-  <figure><img src="slides/slide-05.jpg" alt="Targeting" loading="lazy" width="1600" height="900"><figcaption><span class="sn">05</span>Targeting &middot; Growing the power gen segment</figcaption></figure>
-  <figure><img src="slides/slide-06.jpg" alt="Content engine" loading="lazy" width="1600" height="900"><figcaption><span class="sn">06</span>Content engine</figcaption></figure>
-  <figure><img src="slides/slide-07.jpg" alt="Content engine output" loading="lazy" width="1600" height="900"><figcaption><span class="sn">06b</span>Content engine output &middot; Worked example</figcaption></figure>
-  <figure><img src="slides/slide-08.jpg" alt="Dossier engine" loading="lazy" width="1600" height="900"><figcaption><span class="sn">07</span>Dossier engine</figcaption></figure>
-  <figure><img src="slides/slide-09.jpg" alt="Dossier output" loading="lazy" width="1600" height="900"><figcaption><span class="sn">07b</span>Dossier output &middot; Worked example</figcaption></figure>
-  <figure><img src="slides/slide-10.jpg" alt="What the rep gets" loading="lazy" width="1600" height="900"><figcaption><span class="sn">08</span>What the rep gets</figcaption></figure>
-  <figure><img src="slides/slide-11.jpg" alt="Inside sales" loading="lazy" width="1600" height="900"><figcaption><span class="sn">09</span>Inside sales</figcaption></figure>
-  <figure><img src="slides/slide-12.jpg" alt="Thirty, sixty, ninety" loading="lazy" width="1600" height="900"><figcaption><span class="sn">10</span>Thirty, sixty, ninety</figcaption></figure>
-  <figure><img src="slides/slide-13.jpg" alt="Appendix" loading="lazy" width="1600" height="900"><figcaption><span class="sn">11</span>Appendix &middot; Cost estimates and AI disclosure</figcaption></figure>
-  <div class="tail">The second PDF above is the same thirteen slides with a note from me attached to each page as a PDF comment. Open it in Acrobat or Preview and the comments panel lists all thirteen.</div>
+  <div class="card" id="s01">
+    <h2><span><span class="sn">01</span>Title</span></h2>
+    <img src="slides/slide-01.jpg" alt="Title" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>Michael, here&#x27;s the strategy doc we discussed at the end of our meeting on Wednesday. On some of the hard facts in this I made some assumptions and leaned a little bit on AI for some of the research input. But this is the framework on how I would build the engine and implement a new marketing strategy for EverLine.</div>
+  </div>
+  <div class="card" id="s02">
+    <h2><span><span class="sn">02</span>Current state</span></h2>
+    <img src="slides/slide-02.jpg" alt="Current state" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>I took the liberty of looking under the hood on the website and doing some research on what the digital footprint looks like in terms of your public facing digital profile, to help me put together this slide.</div>
+  </div>
+  <div class="card" id="s03">
+    <h2><span><span class="sn">03</span>Proposed state</span></h2>
+    <img src="slides/slide-03.jpg" alt="Proposed state" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>In a perfect world, this is what it would look like. This is very high level and obviously doesn&#x27;t include everything. A lot of these things fit in different buckets, but these are the bigger pieces. You&#x27;d mentioned that Wes might be brought in to help build out the MarTech stack. Of course, that would be pretty awesome. I talk to Wes all the time and we&#x27;ve worked together for years, so that handoff would be a no brainer.</div>
+  </div>
+  <div class="card" id="s04">
+    <h2><span><span class="sn">04</span>The numbers</span></h2>
+    <img src="slides/slide-04.jpg" alt="The numbers" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>So when I looked under the hood, I just ran a quick Semrush. I know SEO isn&#x27;t really what drives this type of sales cycle, but it took like fifteen seconds, and I figured it does matter. This is what it kicked out, and some of the assumptions are made from this. It helped kind of drive the rest of the deck.</div>
+  </div>
+  <div class="card" id="s05">
+    <h2><span><span class="sn">05</span>Targeting</span></h2>
+    <img src="slides/slide-05.jpg" alt="Targeting" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>You said gas-fired power gen is the segment you most want to grow, so I ran some research on it and put together how I&#x27;d segment that market and go after it. This one leans on AI research and I&#x27;ve marked the part that does. The half I&#x27;d stand behind is the bottom. Industrial Info Resources is a platform I know, and getting that data into HubSpot so it actually drives scoring is the kind of build I&#x27;d just go do.</div>
+  </div>
+  <div class="card" id="s06">
+    <h2><span><span class="sn">06</span>Content engine</span></h2>
+    <img src="slides/slide-06.jpg" alt="Content engine" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>This is an AI piece that would be a real cornerstone for the entire MarTech stack and something that would really allow us to supercharge the entire marketing program. What is on the slide is a hypothetical of what it might look like. It would let us scale content creation and get us up to speed on all the things that make the digital marketing pinwheel start to spin really fast.</div>
+  </div>
+  <div class="card" id="s06b">
+    <h2><span><span class="sn">06b</span>Content engine output</span></h2>
+    <img src="slides/slide-07.jpg" alt="Content engine output" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>This is an example of what it would actually output. I actually ran this piece and the subject matter was how the asset management piece works, which is the part we talked about on Wednesday. Between that conversation and the AI engine&#x27;s own background research, this is what the output was. So I am presenting this as an example. This is something we can build to scale outputs every day.</div>
+  </div>
+  <div class="card" id="s07">
+    <h2><span><span class="sn">07</span>Dossier engine</span></h2>
+    <img src="slides/slide-08.jpg" alt="Dossier engine" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>This is the same build as the content engine, just pointed at accounts. It starts from the HubSpot record, goes and does the research on the company, and writes a finished page back onto the record so it is there before your guy opens the account. If I can get the Salesforce side wired the same summary lands there too.</div>
+  </div>
+  <div class="card" id="s07b">
+    <h2><span><span class="sn">07b</span>Dossier output</span></h2>
+    <img src="slides/slide-09.jpg" alt="Dossier output" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>This is a manufactured client and a manufactured output that I created with my imagination as an ideal scenario, but I look forward to the opportunity to actually make something like this, because it would be a super powerful thing for the sales team.</div>
+  </div>
+  <div class="card" id="s08">
+    <h2><span><span class="sn">08</span>What the rep gets</span></h2>
+    <img src="slides/slide-10.jpg" alt="What the rep gets" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>This is the slide I probably care about the most. This is what all the other components in the marketing engine actually produce, and it is what the sales guys can use to go out there and grow the business. This is where the vanity stats become tangible, useful things that help the business grow.</div>
+  </div>
+  <div class="card" id="s09">
+    <h2><span><span class="sn">09</span>Inside sales</span></h2>
+    <img src="slides/slide-11.jpg" alt="Inside sales" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>If there is room for some headcount, an SDR or an inside salesperson really helps drive the engine. I know the automation can work without it, but this piece really gets it going, and I am happy to hire and manage this resource. I have experience in that.</div>
+  </div>
+  <div class="card" id="s10">
+    <h2><span><span class="sn">10</span>Thirty sixty ninety</span></h2>
+    <img src="slides/slide-12.jpg" alt="Thirty sixty ninety" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>Here&#x27;s the summary of all of it on a thirty, sixty, ninety timeline.</div>
+  </div>
+  <div class="card" id="s11">
+    <h2><span><span class="sn">11</span>Appendix</span></h2>
+    <img src="slides/slide-13.jpg" alt="Appendix" loading="lazy" width="1600" height="900">
+<div class="note"><span class="nl">Note to Michael</span>This is a slide I put at the back of any deck I make. I use a skill I created that automates pulling the references and the costs and shows where things came from, including the AI disclosures. Pretty handy one, and it builds this page for me.</div>
+  </div>
 </div></main>
 <footer><div class="wrap">Brad Sebastian &middot; <a href="https://bradsebastian.com">bradsebastian.com</a> &middot; <a href="mailto:brad@bradsebastian.com">brad@bradsebastian.com</a> &middot; 713-256-1683 &middot; This page is unlisted and prepared for EverLine.</div></footer>
 </body>
