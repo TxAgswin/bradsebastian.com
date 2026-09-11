@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HY89ERJR6L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HY89ERJR6L');
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href$=".pdf"]');
+    if (a) { gtag('event', 'plan_download', { file_name: a.getAttribute('href'), link_text: a.textContent.trim() }); }
+  });
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>EverLine First Quarter Plan &middot; Brad Sebastian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#163d62;--ink:#1a1a1a;--muted:#5b6670;--line:#dfe4e8;--bg:#f7f8f6;--green:#4CAD49}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Archivo,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  header{background:var(--navy);color:#fff;padding:28px 24px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+  h1{margin:6px 0 4px;font-size:28px;font-weight:800;letter-spacing:-.01em}
+  .sub{opacity:.9;font-size:15px;max-width:78ch;line-height:1.5}
+  nav{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 0}
+  nav a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.4);padding:8px 14px;border-radius:6px;font-size:14px;font-weight:600}
+  nav a.primary{background:#fff;color:var(--navy);border-color:#fff}
+  main{padding:22px 24px 40px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:22px}
+  .card h2{margin:0;padding:14px 18px;font-size:15px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .card h2 a{font-size:13px;font-weight:600;color:var(--navy)}
+  .viewer{width:100%;height:80vh;min-height:460px;border:0;display:block;background:#e9eaec}
+  .note{font-size:14px;color:var(--muted);padding:14px 18px;line-height:1.55}
+  .contents{padding:4px 18px 16px;margin:0;columns:2;column-gap:34px;font-size:14px;color:var(--muted);line-height:1.9}
+  .contents li{break-inside:avoid}
+  .contents b{color:var(--ink);font-weight:600}
+  @media (max-width:680px){.contents{columns:1}}
+  footer{padding:18px 24px 40px;font-size:13px;color:var(--muted)}
+  footer a{color:var(--navy)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="kicker">Marketing Manager &middot; Thirty, sixty, ninety</div>
+  <h1>EverLine first quarter plan</h1>
+  <div class="sub">Prepared for Michael Morrow. Thirteen slides on what the marketing stack looks like today, what I would build on it, and how that turns into a scored list of gas-fired accounts on three sellers&#39; desks every week.</div>
+  <nav>
+    <a class="primary" href="EverLine_First_Quarter_Plan_Brad_Sebastian.pdf">Download the deck (PDF)</a>
+    <a href="EverLine_First_Quarter_Plan_with_notes_Brad_Sebastian.pdf">Version with my notes (PDF)</a>
+    <a href="https://bradsebastian.com">bradsebastian.com</a>
+  </nav>
+</div></header>
+<main><div class="wrap">
+  <div class="card">
+    <h2>The deck <a href="EverLine_First_Quarter_Plan_Brad_Sebastian.pdf">Open full screen</a></h2>
+    <iframe class="viewer" src="EverLine_First_Quarter_Plan_Brad_Sebastian.pdf#view=Fit" title="EverLine first quarter plan"></iframe>
+  </div>
+  <div class="card">
+    <h2>What is in it</h2>
+    <ol class="contents">
+      <li><b>Title</b> &middot; Building the engine</li>
+      <li><b>Current state</b> &middot; the stack and the findings</li>
+      <li><b>Proposed state</b> &middot; the stack and the pipeline</li>
+      <li><b>The evidence</b> &middot; what search says today</li>
+      <li><b>Targeting</b> &middot; growing the power gen segment</li>
+      <li><b>The content engine</b></li>
+      <li><b>Content engine output</b> &middot; worked example</li>
+      <li><b>The dossier engine</b></li>
+      <li><b>Dossier output</b> &middot; worked example</li>
+      <li><b>What the rep gets</b></li>
+      <li><b>Inside sales</b></li>
+      <li><b>Thirty, sixty, ninety</b></li>
+      <li><b>Appendix</b> &middot; cost estimates and AI disclosure</li>
+    </ol>
+  </div>
+  <div class="card">
+    <h2>The version with my notes <a href="EverLine_First_Quarter_Plan_with_notes_Brad_Sebastian.pdf">Open PDF</a></h2>
+    <div class="note">Same thirteen slides, with a short note from me printed under each one. It is the walkthrough I would give in the room, written out.</div>
+  </div>
+</div></main>
+<footer><div class="wrap">Brad Sebastian &middot; <a href="https://bradsebastian.com">bradsebastian.com</a> &middot; <a href="mailto:brad@bradsebastian.com">brad@bradsebastian.com</a> &middot; 713-256-1683 &middot; This page is unlisted and prepared for EverLine.</div></footer>
+</body>
+</html>
