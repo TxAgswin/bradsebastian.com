@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-HY89ERJR6L"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HY89ERJR6L');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demand generation work sample · Brad Sebastian</title>
+<meta name="description" content="How Brad Sebastian built a B2B demand engine from zero at NorthSky Supply: channels, HubSpot architecture, lifecycle campaigns and results, plus Raise3D and IGS.">
+<meta property="og:title" content="Demand generation work sample · Brad Sebastian">
+<meta property="og:description" content="A B2B demand engine built from zero: HubSpot architecture, paid media, lifecycle campaigns and results.">
+<meta property="og:url" content="https://bradsebastian.com/work-sample/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='44' fill='%23201E1D'/%3E%3Cg fill='none' stroke-width='28' stroke-linejoin='round'%3E%3Cpath d='M 44 148 L 44 74 A 24 24 0 0 1 68 50 L 148 50' stroke='%231E7F5C'/%3E%3Cpath d='M 156 56 L 156 130 A 24 24 0 0 1 132 154 L 52 154' stroke='%239BEB58'/%3E%3C/g%3E%3Ctext x='100' y='127' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='76' fill='%23F3F2F0'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: matches bradsebastian.com. Warm gray ground, Archivo throughout, deep-green accent, white 20px cards, logo chips. Hero split (story left, results card right), then architecture board, build timeline, two proof cards. */
+:root{
+  --bg:#F3F2F0; --card:#FFFFFF; --ink:#201E1D; --muted:#6B6863; --line:#E4E1DC;
+  --green:#1E7F5C; --green2:#3FBB63; --tint:#EEF7EC; --amber:#B86E14;
+  --shadow:0 2px 4px rgba(32,30,29,.05),0 14px 32px rgba(32,30,29,.09);
+  --font:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;padding-block:0 72px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+a{color:var(--green);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand b{display:block;font-size:14px;font-weight:700;letter-spacing:.02em}
+.brand span{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.bar a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:8px 16px;background:var(--card)}
+
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+h1{font-size:clamp(40px,6.4vw,68px);line-height:1.02}
+.grad{background:linear-gradient(90deg,var(--green),var(--green2));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(28px,3.6vw,40px);line-height:1.08}
+h3{font-size:18px;line-height:1.25}
+p{margin:0}
+.ld{color:var(--muted);font-size:17px;max-width:58ch}
+.ld strong{color:var(--ink);font-weight:600}
+
+section{padding-block:72px 0}
+.sh{display:grid;gap:12px;margin-bottom:32px;max-width:640px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center;padding-block:64px 8px}
+.hero-l{display:grid;gap:20px;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:13px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.card{background:var(--card);border-radius:20px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.results{padding:28px;display:grid;gap:0}
+.results .lbl{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-bottom:6px}
+.stat{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;padding-block:18px;border-top:1px solid var(--line)}
+.stat:first-of-type{border-top:0}
+.num{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;min-width:132px}
+.num small{font-size:20px;color:var(--green);font-weight:700;margin-inline:2px}
+.stat p{font-size:14px;color:var(--muted);line-height:1.45}
+
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:7px 11px 7px 8px;font-size:13px;font-weight:500;white-space:nowrap}
+.chip svg,.chip .mono-logo{width:20px;height:20px;flex:none}
+.chip i{font-style:normal}
+.mono-logo{display:inline-grid;place-items:center;border-radius:5px;background:var(--ink);color:var(--card);font-size:12px;font-weight:800;line-height:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+
+/* architecture board */
+.board{padding:36px;display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1.2fr) 72px minmax(0,1fr);grid-template-rows:auto auto auto auto;align-items:center;column-gap:0;box-shadow:0 2px 4px rgba(32,30,29,.05),0 18px 40px rgba(32,30,29,.10)}
+.col-h{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-bottom:14px;align-self:end}
+.c1{grid-column:1;grid-row:1}.c3{grid-column:3;grid-row:1}.c5{grid-column:5;grid-row:1}
+.col{display:grid;gap:10px;min-width:0;grid-row:2}
+.ch{grid-column:1}.out{grid-column:5}
+.col .chip{justify-content:flex-start;box-shadow:0 1px 2px rgba(32,30,29,.05),0 3px 8px rgba(32,30,29,.05)}
+.flow{grid-row:2;display:flex;align-items:center;justify-content:center;height:100%}
+.flow:nth-of-type(1){grid-column:2}
+.flow span{position:relative;display:block;width:44px;height:2px;border-radius:2px;background:var(--green)}
+.flow span::after{content:"";position:absolute;right:-2px;top:50%;width:9px;height:9px;border-top:2px solid var(--green);border-right:2px solid var(--green);transform:translateY(-50%) rotate(45deg)}
+.board > .flow:nth-child(5){grid-column:2}.board > .flow:nth-child(7){grid-column:4}
+.hub{grid-column:3;grid-row:2;border:2px solid var(--green);border-radius:18px;padding:22px;display:grid;gap:14px;background:var(--card);box-shadow:0 2px 4px rgba(31,107,78,.06),0 14px 32px rgba(31,107,78,.14)}
+.hub-h{display:flex;align-items:center;gap:12px}
+.tile{width:44px;height:44px;border-radius:12px;background:var(--tint);display:grid;place-items:center;flex:none}
+.tile svg{width:26px;height:26px}
+.hub-h small{display:block;font-size:12px;color:var(--muted);font-weight:500}
+.hub ul{margin:0;padding:0;list-style:none;display:grid;gap:9px;font-size:14px}
+.hub li{display:flex;gap:10px;align-items:center}
+.hub li::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--green);flex:none}
+.out > div{background:var(--tint);border-radius:12px;padding:12px 16px;font-size:14px;font-weight:600;box-shadow:0 1px 2px rgba(32,30,29,.04),0 3px 8px rgba(32,30,29,.05)}
+.out > div span{display:block;font-size:12px;font-weight:500;color:var(--muted)}
+.link{grid-column:3;grid-row:3;justify-self:center;width:2px;height:28px;background:var(--green);position:relative}
+.link::before,.link::after{content:"";position:absolute;left:50%;width:8px;height:8px;border-radius:50%;background:var(--green);transform:translateX(-50%)}
+.link::before{top:-4px}.link::after{bottom:-4px}
+.ai{grid-column:3;grid-row:4;border:1.5px dashed var(--green);border-radius:18px;padding:16px 18px;display:flex;gap:14px;align-items:center;background:var(--card);box-shadow:0 1px 2px rgba(32,30,29,.04),0 8px 20px rgba(32,30,29,.07)}
+.ai b{display:block;font-size:14px}
+.ai span{font-size:13px;color:var(--muted);line-height:1.45;display:block}
+
+/* timeline */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;counter-reset:s;list-style:none;margin:0;padding:0}
+.steps li{grid-column:span 2;padding:24px;display:grid;gap:10px;align-content:start;counter-increment:s}
+.steps li::before{content:"Step " counter(s);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+.steps p{font-size:15px;color:var(--muted)}
+.steps li:nth-child(4),.steps li:nth-child(5){grid-column:span 3}
+.steps li:last-child{border-color:var(--green)}
+
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.pc{padding:28px;display:grid;gap:18px;align-content:start;min-width:0}
+.pc .co{display:grid;gap:2px;font-size:13px;color:var(--muted)}
+.pc .co b{font-size:15px}
+.pc .co b{color:var(--ink);font-weight:600}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;border-block:1px solid var(--line);padding-block:16px}
+.mini div{display:grid;gap:4px}
+.mini strong{font-size:28px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.mini span{font-size:12.5px;color:var(--muted);line-height:1.35}
+.pc p{font-size:15px;color:var(--muted)}
+
+footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 28px;font-size:14px;color:var(--muted);align-items:center}
+footer b{color:var(--ink)}
+.fine{font-size:12.5px;color:var(--muted);margin-top:20px}
+
+@media print{html{background:var(--bg)}#build{break-before:page;padding-top:8px}body{padding-block:28px 36px;padding-inline:36px}.grad{background:none;color:var(--green);-webkit-background-clip:border-box;background-clip:border-box}.card,.steps li,.pc,.board,.hero{break-inside:avoid}section{break-inside:auto}.bar a{border-color:var(--line)}}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:32px;padding-top:44px}
+  .board{grid-template-columns:1fr;grid-template-rows:none;padding:22px;row-gap:0}
+  .board > *{grid-column:1 !important;grid-row:auto !important}
+  .c3,.c5{padding-top:4px}
+  .flow{height:44px}
+  .flow span{width:2px;height:28px}
+  .flow span::after{right:auto;left:50%;top:auto;bottom:-2px;transform:translateX(-50%) rotate(135deg)}
+  .board > .col-h.c3{order:3}.board > .flow:nth-child(5){order:2}.board > .col.ch{order:1}.board > .c1{order:0}
+  .board > .hub{order:4}.board > .link{order:5;margin-block:6px}.board > .ai{order:6}.board > .flow:nth-child(7){order:7}.board > .c5{order:8}.board > .out{order:9}
+  .col.ch{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+  .steps{grid-template-columns:1fr}
+  .steps li,.steps li:nth-child(4),.steps li:nth-child(5){grid-column:auto}
+  .col.ch{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+}
+@media (max-width:480px){
+  .mini{grid-template-columns:1fr}
+  .num{min-width:0;font-size:34px}
+  .stat{grid-template-columns:1fr;gap:6px}
+}
+
+/* site header */
+.top{position:sticky;top:0;z-index:30;background:rgba(243,242,240,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand svg{width:34px;height:34px}
+.brand b{display:block;font-size:13.5px;font-weight:700;letter-spacing:.02em;line-height:1.1;text-transform:uppercase}
+.brand small{display:block;white-space:nowrap;font-size:8.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);line-height:1.2;margin-top:2px}
+.nav{display:flex;gap:26px}
+.nav a{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--t2);padding:6px 0;border-bottom:1px solid transparent;white-space:nowrap}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+@media (max-width:900px){.nav{display:none}}
+.top .pdf{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:8px 16px;background:var(--card);color:var(--ink)}
+.top .right{display:flex;align-items:center;gap:26px}
+.top .wrap{padding-block:0}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Brad Sebastian — home">
+      <svg viewBox="0 0 200 200" aria-hidden="true"><defs><linearGradient id="mB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E7F5C"/><stop offset="1" stop-color="#0E5040"/></linearGradient><linearGradient id="mF" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3FBB63"/><stop offset="1" stop-color="#9BEB58"/></linearGradient></defs><g fill="none" stroke-width="30" stroke-linejoin="round"><path d="M 40 150 L 40 70 A 26 26 0 0 1 66 44 L 150 44" stroke="url(#mB)"/><path d="M 160 52 L 160 132 A 26 26 0 0 1 134 158 L 50 158" stroke="url(#mF)"/></g><text x="100" y="128" text-anchor="middle" font-family="Archivo,system-ui,Arial,sans-serif" font-weight="700" font-size="78" fill="#201E1D">B</text></svg>
+      <span><b>Brad Sebastian</b><small>Demand Generation Work Sample</small></span>
+    </a>
+    <div class="right"><nav class="nav" aria-label="Sections">
+      <a href="#architecture">Architecture</a>
+      <a href="#build">How I built it</a>
+      <a href="#earlier">Earlier results</a>
+      <a href="/">Home</a>
+    </nav>
+    <a class="pdf" href="/work-sample/Brad_Sebastian_Work_Sample_Demand_Generation.pdf" target="_blank" rel="noopener">PDF</a></div>
+  </div>
+</header>
+
+
+<div class="wrap">
+<div class="hero">
+  <div class="hero-l">
+    <div class="eyebrow">Case study · NorthSky Supply · 2025–2026</div>
+    <h1>Pipeline,<br><span class="grad">engineered from zero.</span></h1>
+    <p class="ld">NorthSky Supply, the U.S. business unit of ZKH Group (NYSE: ZKH), launched with <strong>no marketing team, no CRM and no playbook</strong>. I built the channels, the HubSpot system of record, the weekly reporting and an AI content pipeline, then ran them.</p>
+    <div class="meta">
+      <span class="tag">Marketing &amp; Business Development Manager</span>
+      <span class="tag">B2B industrial + ecommerce</span>
+      <span class="tag">Jan 2025 – Jul 2026</span>
+    </div>
+  </div>
+  <div class="card results" aria-label="Results">
+    <div class="lbl">What it produced</div>
+    <div class="stat"><div class="num">0.5<small>→</small>5.0</div><p>Paid-media ROAS across Google Ads and Meta, launch to about month 19</p></div>
+    <div class="stat"><div class="num">10–12%</div><p>Conversion on follow-ups timed to each customer's reorder window</p></div>
+    <div class="stat"><div class="num">~$2.5M</div><p>Monthly revenue reached in under 18 months, a company-wide result I helped build</p></div>
+  </div>
+</div>
+
+<section id="architecture">
+  <div class="sh">
+    <div class="eyebrow">The architecture</div>
+    <h2>One system of record for every channel.</h2>
+    <p class="ld">Spend, leads, orders, pipeline and revenue all landed in the same HubSpot instance that sales and service worked from every day.</p>
+  </div>
+  <div class="card board">
+    <div class="col-h c1">Channels</div>
+    <div class="col-h c3">System of record</div>
+    <div class="col-h c5">Who runs on it</div>
+    <div class="col ch">
+      <span class="chip"><svg viewBox="0 0 256 230" aria-hidden="true"><path fill="#fbbc04" d="M5.888 166.405L90.88 20.9c10.796 6.356 65.236 36.484 74.028 42.214L79.916 208.627c-9.295 12.28-85.804-23.587-74.028-42.23z"/><path fill="#4285f4" d="M250.084 166.402L165.092 20.906C153.21 1.132 127.62-6.054 106.601 5.625S79.182 42.462 91.064 63.119l84.992 145.514c11.882 19.765 37.473 26.95 58.492 15.272c20.1-11.68 27.418-37.73 15.536-57.486z"/><ellipse cx="42.664" cy="187.924" fill="#34a853" rx="42.664" ry="41.604"/></svg><i>Google Ads</i></span>
+      <span class="chip"><svg viewBox="0 0 256 171" aria-hidden="true"><defs><linearGradient id="SVGYeLhubCc" x1="13.878%" x2="89.144%" y1="55.934%" y2="58.694%"><stop offset="0%" stop-color="#0064e1"/><stop offset="40%" stop-color="#0064e1"/><stop offset="83%" stop-color="#0073ee"/><stop offset="100%" stop-color="#0082fb"/></linearGradient><linearGradient id="SVGll66Sdsg" x1="54.315%" x2="54.315%" y1="82.782%" y2="39.307%"><stop offset="0%" stop-color="#0082fb"/><stop offset="100%" stop-color="#0064e0"/></linearGradient></defs><path fill="#0081fb" d="M27.651 112.136c0 9.775 2.146 17.28 4.95 21.82c3.677 5.947 9.16 8.466 14.751 8.466c7.211 0 13.808-1.79 26.52-19.372c10.185-14.092 22.186-33.874 30.26-46.275l13.675-21.01c9.499-14.591 20.493-30.811 33.1-41.806C161.196 4.985 172.298 0 183.47 0c18.758 0 36.625 10.87 50.3 31.257C248.735 53.584 256 81.707 256 110.729c0 17.253-3.4 29.93-9.187 39.946c-5.591 9.686-16.488 19.363-34.818 19.363v-27.616c15.695 0 19.612-14.422 19.612-30.927c0-23.52-5.484-49.623-17.564-68.273c-8.574-13.23-19.684-21.313-31.907-21.313c-13.22 0-23.859 9.97-35.815 27.75c-6.356 9.445-12.882 20.956-20.208 33.944l-8.066 14.289c-16.203 28.728-20.307 35.271-28.408 46.07c-14.2 18.91-26.324 26.076-42.287 26.076c-18.935 0-30.91-8.2-38.325-20.556C2.973 139.413 0 126.202 0 111.148z"/><path fill="url(#SVGYeLhubCc)" d="M21.802 33.206C34.48 13.666 52.774 0 73.757 0C85.91 0 97.99 3.597 110.605 13.897c13.798 11.261 28.505 29.805 46.853 60.368l6.58 10.967c15.881 26.459 24.917 40.07 30.205 46.49c6.802 8.243 11.565 10.7 17.752 10.7c15.695 0 19.612-14.422 19.612-30.927l24.393-.766c0 17.253-3.4 29.93-9.187 39.946c-5.591 9.686-16.488 19.363-34.818 19.363c-11.395 0-21.49-2.475-32.654-13.007c-8.582-8.083-18.615-22.443-26.334-35.352l-22.96-38.352C118.528 64.08 107.96 49.73 101.845 43.23c-6.578-6.988-15.036-15.428-28.532-15.428c-10.923 0-20.2 7.666-27.963 19.39z"/><path fill="url(#SVGll66Sdsg)" d="M73.312 27.802c-10.923 0-20.2 7.666-27.963 19.39c-10.976 16.568-17.698 41.245-17.698 64.944c0 9.775 2.146 17.28 4.95 21.82L9.027 149.482C2.973 139.413 0 126.202 0 111.148C0 83.772 7.514 55.24 21.802 33.206C34.48 13.666 52.774 0 73.757 0z"/></svg><i>Meta Ads</i></span>
+      <span class="chip"><span class="mono-logo" aria-hidden="true">O</span><i>OmniSend email</i></span>
+      <span class="chip"><svg viewBox="0 0 256 292" aria-hidden="true"><path fill="#95bf46" d="M223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357a19614 19614 0 0 0-23.383-1.743s-15.507-15.395-17.209-17.099c-1.703-1.703-5.029-1.185-6.32-.805c-.19.056-3.388 1.043-8.678 2.68c-5.18-14.906-14.322-28.604-30.405-28.604c-.444 0-.901.018-1.358.044C129.31 3.407 123.644.779 118.75.779c-37.465 0-55.364 46.835-60.976 70.635c-14.558 4.511-24.9 7.718-26.221 8.133c-8.126 2.549-8.383 2.805-9.45 10.462C21.3 95.806.038 260.235.038 260.235l165.678 31.042l89.77-19.42S223.973 58.8 223.775 57.34M156.49 40.848l-14.019 4.339c.005-.988.01-1.96.01-3.023c0-9.264-1.286-16.723-3.349-22.636c8.287 1.04 13.806 10.469 17.358 21.32m-27.638-19.483c2.304 5.773 3.802 14.058 3.802 25.238c0 .572-.005 1.095-.01 1.624c-9.117 2.824-19.024 5.89-28.953 8.966c5.575-21.516 16.025-31.908 25.161-35.828m-11.131-10.537c1.617 0 3.246.549 4.805 1.622c-12.007 5.65-24.877 19.88-30.312 48.297l-22.886 7.088C75.694 46.16 90.81 10.828 117.72 10.828"/><path fill="#5e8e3e" d="M221.237 54.983a19614 19614 0 0 0-23.383-1.743s-15.507-15.395-17.209-17.099c-.637-.634-1.496-.959-2.394-1.099l-12.527 256.233l89.762-19.418S223.972 58.8 223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357"/><path fill="#fff" d="m135.242 104.585l-11.069 32.926s-9.698-5.176-21.586-5.176c-17.428 0-18.305 10.937-18.305 13.693c0 15.038 39.2 20.8 39.2 56.024c0 27.713-17.577 45.558-41.277 45.558c-28.44 0-42.984-17.7-42.984-17.7l7.615-25.16s14.95 12.835 27.565 12.835c8.243 0 11.596-6.49 11.596-11.232c0-19.616-32.16-20.491-32.16-52.724c0-27.129 19.472-53.382 58.778-53.382c15.145 0 22.627 4.338 22.627 4.338"/></svg><i>Shopify</i></span>
+      <span class="chip"><span class="mono-logo" aria-hidden="true">a</span><i>Amazon</i></span>
+    </div>
+    <div class="flow" aria-hidden="true"><span></span></div>
+    <div class="hub">
+      <div class="hub-h"><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF7A59" d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg></div><div><h3>HubSpot</h3><small>Built from scratch · primary admin</small></div></div>
+      <ul>
+        <li>Marketing, Sales and Service Hubs</li>
+        <li>Full product catalog with live inventory</li>
+        <li>GA4 and ad-platform data integrated</li>
+        <li>Automations and lead handoff to reps</li>
+      </ul>
+    </div>
+    <div class="flow" aria-hidden="true"><span></span></div>
+    <div class="col out">
+      <div>Sales reps<span>Leads, accounts, product content</span></div>
+      <div>Service reps<span>Orders, reorders, support content</span></div>
+      <div>Weekly dashboards<span>Executive, sales and service reviews</span></div>
+    </div>
+    <div class="link" aria-hidden="true"></div>
+    <div class="ai">
+      <div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#1E7F5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="4.5" cy="6" r="1.8"/><circle cx="19.5" cy="6" r="1.8"/><circle cx="4.5" cy="18" r="1.8"/><circle cx="19.5" cy="18" r="1.8"/><path d="M6 7l3.6 3M18 7l-3.6 3M6 17l3.6-3M18 17l-3.6-3"/></svg></div>
+      <div><b>AI content pipeline</b><span>Led a four-person AI team; mapped AI-generated product and service content into HubSpot properties so reps saw it in each record.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="build">
+  <div class="sh">
+    <div class="eyebrow">How I built it</div>
+    <h2>Five moves, in order.</h2>
+  </div>
+  <ol class="steps">
+    <li class="card"><h3>Architect the CRM first</h3><p>Marketing, Sales and Service Hubs with the full product catalog, integrated with Shopify, OmniSend, GA4 and the ad platforms, so every lead and order had one record.</p></li>
+    <li class="card"><h3>Launch paid search and paid social</h3><p>Google Ads and Meta, judged on ROAS and pipeline in the CRM rather than platform clicks, and tuned month over month.</p></li>
+    <li class="card"><h3>Build lifecycle from purchase data</h3><p>With the product team I modeled how fast customers used up consumables and timed follow-up campaigns to the reorder window.</p></li>
+    <li class="card"><h3>Close the loop with sales</h3><p>I trained every sales and service rep on the CRM and its automations; leadership reviewed the live dashboards weekly.</p></li>
+    <li class="card"><h3>Put AI inside the CRM</h3><p>Named by ZKH's VP of IT and AI to lead a four-person AI team, I designed the HubSpot property mappings that delivered its content to reps.</p></li>
+  </ol>
+</section>
+
+<section id="earlier">
+  <div class="sh">
+    <div class="eyebrow">Same playbook, earlier</div>
+    <h2>It has worked before.</h2>
+  </div>
+  <div class="proof">
+    <div class="card pc">
+      <div class="co"><b>Raise3D Technologies</b><span>Digital Marketing Manager · 2023–2024</span></div>
+      <h3>A demand engine for a technical manufacturer</h3>
+      <div class="mini">
+        <div><strong>+40%</strong><span>qualified pipeline to sales</span></div>
+        <div><strong>50%+</strong><span>faster conversion to close</span></div>
+        <div><strong>+30%</strong><span>online conversions</span></div>
+      </div>
+      <p>Built on Salesforce and HubSpot with ZoomInfo intent data and Drift chat, alongside three product launches into North America. Results over 12 months.</p>
+      <div class="chips"><span class="chip"><svg viewBox="0 0 256 180" aria-hidden="true"><path fill="#00a1e0" d="M106.553 19.651c8.248-8.594 19.731-13.924 32.43-13.924c16.883 0 31.612 9.414 39.455 23.389a54.5 54.5 0 0 1 22.3-4.74c30.449 0 55.134 24.9 55.134 55.615c0 30.719-24.685 55.62-55.134 55.62a54.7 54.7 0 0 1-10.86-1.083c-6.908 12.321-20.07 20.645-35.178 20.645a40.1 40.1 0 0 1-17.632-4.058c-7.002 16.47-23.316 28.019-42.33 28.019c-19.8 0-36.674-12.529-43.152-30.1c-2.83.602-5.763.915-8.772.915c-23.574 0-42.686-19.308-42.686-43.13a43.2 43.2 0 0 1 21.345-37.36a49.4 49.4 0 0 1-4.088-19.727C17.385 22.336 39.626.128 67.06.128c16.106 0 30.42 7.658 39.494 19.523"/><path fill="#fff" d="M37.17 92.956c-.16.419.058.506.11.58c.48.349.968.6 1.46.88c2.609 1.385 5.071 1.79 7.647 1.79c5.246 0 8.503-2.79 8.503-7.283v-.087c0-4.153-3.676-5.662-7.126-6.75l-.448-.147c-2.601-.845-4.845-1.573-4.845-3.286v-.09c0-1.465 1.311-2.544 3.344-2.544c2.259 0 4.94.75 6.667 1.705c0 0 .506.328.692-.164c.102-.262.976-2.615 1.068-2.87c.098-.277-.077-.481-.255-.59c-1.971-1.2-4.696-2.019-7.516-2.019l-.525.004c-4.801 0-8.153 2.9-8.153 7.057v.087c0 4.383 3.698 5.803 7.162 6.794l.558.172c2.524.775 4.7 1.442 4.7 3.22v.087c0 1.625-1.414 2.835-3.695 2.835c-.885 0-3.708-.018-6.758-1.946c-.368-.215-.583-.371-.867-.542c-.15-.095-.524-.26-.688.236zm76.8 0c-.16.419.058.506.11.58c.48.349.968.6 1.46.88c2.608 1.385 5.071 1.79 7.647 1.79c5.246 0 8.503-2.79 8.503-7.283v-.087c0-4.153-3.676-5.662-7.126-6.75l-.448-.147c-2.601-.845-4.846-1.573-4.846-3.286v-.09c0-1.465 1.312-2.544 3.345-2.544c2.259 0 4.94.75 6.667 1.705c0 0 .506.328.692-.164c.102-.262.976-2.615 1.067-2.87c.099-.277-.076-.481-.255-.59c-1.97-1.2-4.696-2.019-7.515-2.019l-.525.004c-4.802 0-8.153 2.9-8.153 7.057v.087c0 4.383 3.697 5.803 7.162 6.794l.557.172c2.525.775 4.704 1.442 4.704 3.22v.087c0 1.625-1.418 2.835-3.698 2.835a12.4 12.4 0 0 1-6.758-1.946c-.368-.215-.587-.364-.863-.542c-.095-.062-.54-.234-.693.236zm52.429-8.799c0 2.54-.474 4.54-1.406 5.953c-.922 1.4-2.317 2.08-4.263 2.08c-1.949 0-3.337-.677-4.244-2.08c-.918-1.41-1.384-3.413-1.384-5.953c0-2.535.466-4.532 1.384-5.93c.907-1.385 2.295-2.059 4.244-2.059c1.946 0 3.34.674 4.266 2.058c.93 1.4 1.403 3.396 1.403 5.931m4.379-4.707c-.43-1.453-1.1-2.735-1.993-3.803c-.893-1.071-2.022-1.93-3.363-2.557c-1.337-.623-2.918-.94-4.692-.94c-1.778 0-3.359.317-4.696.94c-1.34.626-2.47 1.486-3.366 2.557c-.889 1.071-1.56 2.354-1.993 3.803c-.426 1.447-.64 3.028-.64 4.707c0 1.68.214 3.265.64 4.707c.434 1.45 1.1 2.732 1.997 3.804a9.4 9.4 0 0 0 3.362 2.535c1.34.609 2.918.918 4.696.918c1.774 0 3.352-.31 4.692-.918a9.4 9.4 0 0 0 3.363-2.535c.893-1.068 1.563-2.35 1.993-3.804c.43-1.446.645-3.03.645-4.707c0-1.675-.215-3.26-.645-4.707m35.959 12.063c-.145-.426-.557-.266-.557-.266c-.637.244-1.315.47-2.036.583a16 16 0 0 1-2.401.171c-2.12 0-3.804-.63-5.01-1.876c-1.209-1.246-1.887-3.26-1.88-5.986c.008-2.48.606-4.346 1.68-5.767c1.068-1.413 2.692-2.138 4.86-2.138c1.807 0 3.184.207 4.627.663c0 0 .346.15.51-.303c.382-1.063.667-1.825 1.075-2.994c.116-.332-.168-.474-.27-.514c-.568-.222-1.909-.583-2.922-.736c-.947-.145-2.054-.222-3.286-.222c-1.84 0-3.479.313-4.882.94c-1.399.623-2.586 1.483-3.526 2.554s-1.654 2.353-2.131 3.803c-.474 1.446-.714 3.035-.714 4.714c0 3.632.98 6.569 2.914 8.718c1.938 2.157 4.85 3.253 8.645 3.253c2.244 0 4.547-.455 6.2-1.107c0 0 .318-.153.18-.521zm7.663-9.788c.207-1.41.597-2.583 1.198-3.497c.907-1.388 2.291-2.15 4.237-2.15c1.945 0 3.231.765 4.153 2.15c.612.914.878 2.138.983 3.497zm14.743-3.1c-.372-1.403-1.294-2.82-1.898-3.468c-.955-1.028-1.887-1.746-2.813-2.146a10.8 10.8 0 0 0-4.248-.86c-1.85 0-3.53.31-4.892.95c-1.366.642-2.514 1.516-3.414 2.606c-.9 1.085-1.577 2.379-2.007 3.847c-.434 1.46-.652 3.053-.652 4.732c0 1.709.226 3.3.674 4.732c.451 1.443 1.173 2.715 2.15 3.767c.972 1.06 2.225 1.891 3.726 2.47c1.49.576 3.3.875 5.38.871c4.281-.015 6.537-.969 7.465-1.483c.164-.09.321-.251.124-.71l-.969-2.714c-.145-.405-.557-.255-.557-.255c-1.06.393-2.568 1.1-6.084 1.093c-2.299-.004-4.004-.682-5.071-1.742c-1.097-1.085-1.632-2.68-1.727-4.932l14.824.014s.39-.007.43-.386c.014-.16.51-3.046-.441-6.386m-133.46 3.1c.211-1.41.597-2.583 1.199-3.497c.907-1.388 2.291-2.15 4.236-2.15c1.946 0 3.232.765 4.157 2.15c.609.914.875 2.138.98 3.497zm14.74-3.1c-.372-1.403-1.29-2.82-1.895-3.468c-.954-1.028-1.887-1.746-2.812-2.146a10.8 10.8 0 0 0-4.248-.86c-1.847 0-3.53.31-4.892.95c-1.367.642-2.514 1.516-3.414 2.606c-.9 1.085-1.577 2.379-2.007 3.847c-.43 1.46-.652 3.053-.652 4.732c0 1.709.225 3.3.674 4.732c.451 1.443 1.173 2.715 2.149 3.767c.973 1.06 2.226 1.891 3.727 2.47c1.49.576 3.3.875 5.38.871c4.281-.015 6.536-.969 7.465-1.483c.164-.09.32-.251.124-.71l-.965-2.714c-.15-.405-.561-.255-.561-.255c-1.06.393-2.565 1.1-6.088 1.093c-2.295-.004-4-.682-5.067-1.742c-1.097-1.085-1.633-2.68-1.727-4.932l14.823.014s.39-.007.43-.386c.015-.16.51-3.046-.444-6.386M63.642 91.431c-.58-.462-.66-.579-.856-.878c-.292-.455-.441-1.104-.441-1.927c0-1.304.43-2.24 1.322-2.87c-.01.003 1.275-1.112 4.3-1.072c2.123.03 4.021.343 4.021.343v6.74h.004s-1.884.404-4.004.531c-3.017.182-4.357-.87-4.346-.867m5.898-10.415c-.601-.044-1.38-.07-2.313-.07c-1.272 0-2.5.16-3.65.47a9.5 9.5 0 0 0-3.097 1.436a7.15 7.15 0 0 0-2.15 2.444c-.524.977-.79 2.128-.79 3.417c0 1.312.225 2.452.677 3.385a6.1 6.1 0 0 0 1.935 2.317c.823.601 1.84 1.042 3.02 1.308c1.162.266 2.48.4 3.923.4c1.52 0 3.035-.123 4.503-.375a94 94 0 0 0 3.734-.721c.492-.117 1.039-.266 1.039-.266c.368-.091.338-.485.338-.485l-.007-13.555c0-2.973-.794-5.177-2.357-6.543c-1.555-1.363-3.847-2.051-6.809-2.051c-1.11 0-2.9.153-3.97.368c0 0-3.24.626-4.573 1.668c0 0-.291.182-.131.59l1.05 2.82c.13.364.484.24.484.24s.113-.043.244-.12c2.852-1.552 6.459-1.504 6.459-1.504c1.603 0 2.834.32 3.665.958c.809.619 1.22 1.555 1.22 3.53v.626c-1.275-.182-2.444-.287-2.444-.287m119.56-7.639a.4.4 0 0 0-.223-.532c-.251-.098-1.512-.364-2.485-.426c-1.861-.113-2.896.2-3.821.616c-.918.415-1.938 1.085-2.507 1.847v-1.804c0-.251-.178-.451-.426-.451h-3.8c-.247 0-.426.2-.426.451v22.11c0 .248.204.452.452.452h3.894a.45.45 0 0 0 .448-.452V84.142c0-1.482.164-2.962.492-3.89c.32-.919.758-1.654 1.297-2.183a4.55 4.55 0 0 1 1.833-1.1c.688-.211 1.45-.28 1.989-.28c.776 0 1.628.2 1.628.2c.284.033.445-.142.54-.4c.254-.678.976-2.708 1.114-3.112"/><path fill="#fff" d="M152.544 63.13a13 13 0 0 0-1.465-.35a11.6 11.6 0 0 0-2.014-.152c-2.682 0-4.795.757-6.277 2.251c-1.476 1.486-2.478 3.749-2.98 6.725l-.183 1.002h-3.366s-.408-.015-.495.43l-.55 3.086c-.04.291.087.477.48.477h3.276l-3.323 18.55c-.258 1.494-.557 2.722-.889 3.654c-.324.918-.64 1.607-1.034 2.11c-.38.48-.736.838-1.356 1.045c-.51.172-1.1.252-1.745.252c-.357 0-.834-.059-1.187-.131a3.5 3.5 0 0 1-.802-.26s-.382-.145-.535.238c-.12.317-.995 2.717-1.1 3.013c-.102.295.043.524.229.593c.437.153.761.255 1.355.397c.824.194 1.52.204 2.172.204c1.362 0 2.608-.193 3.639-.564c1.035-.375 1.938-1.028 2.74-1.91c.863-.954 1.406-1.952 1.923-3.318c.514-1.348.955-3.024 1.304-4.976l3.341-18.897h4.882s.411.014.495-.434l.554-3.082c.036-.295-.087-.477-.485-.477h-4.74c.026-.106.241-1.774.784-3.344c.233-.667.67-1.21 1.038-1.581a3.1 3.1 0 0 1 1.243-.773c.47-.153 1.005-.226 1.592-.226c.444 0 .885.051 1.216.12c.46.099.638.15.758.186c.485.146.55.004.645-.23l1.133-3.11c.117-.335-.171-.478-.273-.518M86.322 95.19c0 .247-.179.448-.426.448h-3.931c-.248 0-.423-.2-.423-.448V63.553c0-.247.175-.448.423-.448h3.93c.248 0 .427.2.427.448z"/></svg><i>Salesforce</i></span><span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF7A59" d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg><i>HubSpot</i></span><span class="chip"><span class="mono-logo" aria-hidden="true">Z</span><i>ZoomInfo</i></span><span class="chip"><span class="mono-logo" aria-hidden="true">D</span><i>Drift</i></span></div>
+    </div>
+    <div class="card pc">
+      <div class="co"><b>Integrated Global Services</b><span>Marketing &amp; Communications Manager · 2016–2020</span></div>
+      <h3>Pipeline for a global energy-services company</h3>
+      <div class="mini">
+        <div><strong>$31M</strong><span>qualified pipeline in two years</span></div>
+        <div><strong>$6.8M</strong><span>new revenue</span></div>
+        <div><strong>110%+</strong><span>marketing ROI</span></div>
+      </div>
+      <p>Pardot programs on Salesforce, aimed at target-account lists built from refinery and power-plant turnaround schedules. Qualified leads to sales rose 50%.</p>
+      <div class="chips"><span class="chip"><svg viewBox="0 0 256 180" aria-hidden="true"><path fill="#00a1e0" d="M106.553 19.651c8.248-8.594 19.731-13.924 32.43-13.924c16.883 0 31.612 9.414 39.455 23.389a54.5 54.5 0 0 1 22.3-4.74c30.449 0 55.134 24.9 55.134 55.615c0 30.719-24.685 55.62-55.134 55.62a54.7 54.7 0 0 1-10.86-1.083c-6.908 12.321-20.07 20.645-35.178 20.645a40.1 40.1 0 0 1-17.632-4.058c-7.002 16.47-23.316 28.019-42.33 28.019c-19.8 0-36.674-12.529-43.152-30.1c-2.83.602-5.763.915-8.772.915c-23.574 0-42.686-19.308-42.686-43.13a43.2 43.2 0 0 1 21.345-37.36a49.4 49.4 0 0 1-4.088-19.727C17.385 22.336 39.626.128 67.06.128c16.106 0 30.42 7.658 39.494 19.523"/><path fill="#fff" d="M37.17 92.956c-.16.419.058.506.11.58c.48.349.968.6 1.46.88c2.609 1.385 5.071 1.79 7.647 1.79c5.246 0 8.503-2.79 8.503-7.283v-.087c0-4.153-3.676-5.662-7.126-6.75l-.448-.147c-2.601-.845-4.845-1.573-4.845-3.286v-.09c0-1.465 1.311-2.544 3.344-2.544c2.259 0 4.94.75 6.667 1.705c0 0 .506.328.692-.164c.102-.262.976-2.615 1.068-2.87c.098-.277-.077-.481-.255-.59c-1.971-1.2-4.696-2.019-7.516-2.019l-.525.004c-4.801 0-8.153 2.9-8.153 7.057v.087c0 4.383 3.698 5.803 7.162 6.794l.558.172c2.524.775 4.7 1.442 4.7 3.22v.087c0 1.625-1.414 2.835-3.695 2.835c-.885 0-3.708-.018-6.758-1.946c-.368-.215-.583-.371-.867-.542c-.15-.095-.524-.26-.688.236zm76.8 0c-.16.419.058.506.11.58c.48.349.968.6 1.46.88c2.608 1.385 5.071 1.79 7.647 1.79c5.246 0 8.503-2.79 8.503-7.283v-.087c0-4.153-3.676-5.662-7.126-6.75l-.448-.147c-2.601-.845-4.846-1.573-4.846-3.286v-.09c0-1.465 1.312-2.544 3.345-2.544c2.259 0 4.94.75 6.667 1.705c0 0 .506.328.692-.164c.102-.262.976-2.615 1.067-2.87c.099-.277-.076-.481-.255-.59c-1.97-1.2-4.696-2.019-7.515-2.019l-.525.004c-4.802 0-8.153 2.9-8.153 7.057v.087c0 4.383 3.697 5.803 7.162 6.794l.557.172c2.525.775 4.704 1.442 4.704 3.22v.087c0 1.625-1.418 2.835-3.698 2.835a12.4 12.4 0 0 1-6.758-1.946c-.368-.215-.587-.364-.863-.542c-.095-.062-.54-.234-.693.236zm52.429-8.799c0 2.54-.474 4.54-1.406 5.953c-.922 1.4-2.317 2.08-4.263 2.08c-1.949 0-3.337-.677-4.244-2.08c-.918-1.41-1.384-3.413-1.384-5.953c0-2.535.466-4.532 1.384-5.93c.907-1.385 2.295-2.059 4.244-2.059c1.946 0 3.34.674 4.266 2.058c.93 1.4 1.403 3.396 1.403 5.931m4.379-4.707c-.43-1.453-1.1-2.735-1.993-3.803c-.893-1.071-2.022-1.93-3.363-2.557c-1.337-.623-2.918-.94-4.692-.94c-1.778 0-3.359.317-4.696.94c-1.34.626-2.47 1.486-3.366 2.557c-.889 1.071-1.56 2.354-1.993 3.803c-.426 1.447-.64 3.028-.64 4.707c0 1.68.214 3.265.64 4.707c.434 1.45 1.1 2.732 1.997 3.804a9.4 9.4 0 0 0 3.362 2.535c1.34.609 2.918.918 4.696.918c1.774 0 3.352-.31 4.692-.918a9.4 9.4 0 0 0 3.363-2.535c.893-1.068 1.563-2.35 1.993-3.804c.43-1.446.645-3.03.645-4.707c0-1.675-.215-3.26-.645-4.707m35.959 12.063c-.145-.426-.557-.266-.557-.266c-.637.244-1.315.47-2.036.583a16 16 0 0 1-2.401.171c-2.12 0-3.804-.63-5.01-1.876c-1.209-1.246-1.887-3.26-1.88-5.986c.008-2.48.606-4.346 1.68-5.767c1.068-1.413 2.692-2.138 4.86-2.138c1.807 0 3.184.207 4.627.663c0 0 .346.15.51-.303c.382-1.063.667-1.825 1.075-2.994c.116-.332-.168-.474-.27-.514c-.568-.222-1.909-.583-2.922-.736c-.947-.145-2.054-.222-3.286-.222c-1.84 0-3.479.313-4.882.94c-1.399.623-2.586 1.483-3.526 2.554s-1.654 2.353-2.131 3.803c-.474 1.446-.714 3.035-.714 4.714c0 3.632.98 6.569 2.914 8.718c1.938 2.157 4.85 3.253 8.645 3.253c2.244 0 4.547-.455 6.2-1.107c0 0 .318-.153.18-.521zm7.663-9.788c.207-1.41.597-2.583 1.198-3.497c.907-1.388 2.291-2.15 4.237-2.15c1.945 0 3.231.765 4.153 2.15c.612.914.878 2.138.983 3.497zm14.743-3.1c-.372-1.403-1.294-2.82-1.898-3.468c-.955-1.028-1.887-1.746-2.813-2.146a10.8 10.8 0 0 0-4.248-.86c-1.85 0-3.53.31-4.892.95c-1.366.642-2.514 1.516-3.414 2.606c-.9 1.085-1.577 2.379-2.007 3.847c-.434 1.46-.652 3.053-.652 4.732c0 1.709.226 3.3.674 4.732c.451 1.443 1.173 2.715 2.15 3.767c.972 1.06 2.225 1.891 3.726 2.47c1.49.576 3.3.875 5.38.871c4.281-.015 6.537-.969 7.465-1.483c.164-.09.321-.251.124-.71l-.969-2.714c-.145-.405-.557-.255-.557-.255c-1.06.393-2.568 1.1-6.084 1.093c-2.299-.004-4.004-.682-5.071-1.742c-1.097-1.085-1.632-2.68-1.727-4.932l14.824.014s.39-.007.43-.386c.014-.16.51-3.046-.441-6.386m-133.46 3.1c.211-1.41.597-2.583 1.199-3.497c.907-1.388 2.291-2.15 4.236-2.15c1.946 0 3.232.765 4.157 2.15c.609.914.875 2.138.98 3.497zm14.74-3.1c-.372-1.403-1.29-2.82-1.895-3.468c-.954-1.028-1.887-1.746-2.812-2.146a10.8 10.8 0 0 0-4.248-.86c-1.847 0-3.53.31-4.892.95c-1.367.642-2.514 1.516-3.414 2.606c-.9 1.085-1.577 2.379-2.007 3.847c-.43 1.46-.652 3.053-.652 4.732c0 1.709.225 3.3.674 4.732c.451 1.443 1.173 2.715 2.149 3.767c.973 1.06 2.226 1.891 3.727 2.47c1.49.576 3.3.875 5.38.871c4.281-.015 6.536-.969 7.465-1.483c.164-.09.32-.251.124-.71l-.965-2.714c-.15-.405-.561-.255-.561-.255c-1.06.393-2.565 1.1-6.088 1.093c-2.295-.004-4-.682-5.067-1.742c-1.097-1.085-1.633-2.68-1.727-4.932l14.823.014s.39-.007.43-.386c.015-.16.51-3.046-.444-6.386M63.642 91.431c-.58-.462-.66-.579-.856-.878c-.292-.455-.441-1.104-.441-1.927c0-1.304.43-2.24 1.322-2.87c-.01.003 1.275-1.112 4.3-1.072c2.123.03 4.021.343 4.021.343v6.74h.004s-1.884.404-4.004.531c-3.017.182-4.357-.87-4.346-.867m5.898-10.415c-.601-.044-1.38-.07-2.313-.07c-1.272 0-2.5.16-3.65.47a9.5 9.5 0 0 0-3.097 1.436a7.15 7.15 0 0 0-2.15 2.444c-.524.977-.79 2.128-.79 3.417c0 1.312.225 2.452.677 3.385a6.1 6.1 0 0 0 1.935 2.317c.823.601 1.84 1.042 3.02 1.308c1.162.266 2.48.4 3.923.4c1.52 0 3.035-.123 4.503-.375a94 94 0 0 0 3.734-.721c.492-.117 1.039-.266 1.039-.266c.368-.091.338-.485.338-.485l-.007-13.555c0-2.973-.794-5.177-2.357-6.543c-1.555-1.363-3.847-2.051-6.809-2.051c-1.11 0-2.9.153-3.97.368c0 0-3.24.626-4.573 1.668c0 0-.291.182-.131.59l1.05 2.82c.13.364.484.24.484.24s.113-.043.244-.12c2.852-1.552 6.459-1.504 6.459-1.504c1.603 0 2.834.32 3.665.958c.809.619 1.22 1.555 1.22 3.53v.626c-1.275-.182-2.444-.287-2.444-.287m119.56-7.639a.4.4 0 0 0-.223-.532c-.251-.098-1.512-.364-2.485-.426c-1.861-.113-2.896.2-3.821.616c-.918.415-1.938 1.085-2.507 1.847v-1.804c0-.251-.178-.451-.426-.451h-3.8c-.247 0-.426.2-.426.451v22.11c0 .248.204.452.452.452h3.894a.45.45 0 0 0 .448-.452V84.142c0-1.482.164-2.962.492-3.89c.32-.919.758-1.654 1.297-2.183a4.55 4.55 0 0 1 1.833-1.1c.688-.211 1.45-.28 1.989-.28c.776 0 1.628.2 1.628.2c.284.033.445-.142.54-.4c.254-.678.976-2.708 1.114-3.112"/><path fill="#fff" d="M152.544 63.13a13 13 0 0 0-1.465-.35a11.6 11.6 0 0 0-2.014-.152c-2.682 0-4.795.757-6.277 2.251c-1.476 1.486-2.478 3.749-2.98 6.725l-.183 1.002h-3.366s-.408-.015-.495.43l-.55 3.086c-.04.291.087.477.48.477h3.276l-3.323 18.55c-.258 1.494-.557 2.722-.889 3.654c-.324.918-.64 1.607-1.034 2.11c-.38.48-.736.838-1.356 1.045c-.51.172-1.1.252-1.745.252c-.357 0-.834-.059-1.187-.131a3.5 3.5 0 0 1-.802-.26s-.382-.145-.535.238c-.12.317-.995 2.717-1.1 3.013c-.102.295.043.524.229.593c.437.153.761.255 1.355.397c.824.194 1.52.204 2.172.204c1.362 0 2.608-.193 3.639-.564c1.035-.375 1.938-1.028 2.74-1.91c.863-.954 1.406-1.952 1.923-3.318c.514-1.348.955-3.024 1.304-4.976l3.341-18.897h4.882s.411.014.495-.434l.554-3.082c.036-.295-.087-.477-.485-.477h-4.74c.026-.106.241-1.774.784-3.344c.233-.667.67-1.21 1.038-1.581a3.1 3.1 0 0 1 1.243-.773c.47-.153 1.005-.226 1.592-.226c.444 0 .885.051 1.216.12c.46.099.638.15.758.186c.485.146.55.004.645-.23l1.133-3.11c.117-.335-.171-.478-.273-.518M86.322 95.19c0 .247-.179.448-.426.448h-3.931c-.248 0-.423-.2-.423-.448V63.553c0-.247.175-.448.423-.448h3.93c.248 0 .427.2.427.448z"/></svg><i>Salesforce</i></span><span class="chip"><svg viewBox="0 0 256 180" aria-hidden="true"><path fill="#00a1e0" d="M106.553 19.651c8.248-8.594 19.731-13.924 32.43-13.924c16.883 0 31.612 9.414 39.455 23.389a54.5 54.5 0 0 1 22.3-4.74c30.449 0 55.134 24.9 55.134 55.615c0 30.719-24.685 55.62-55.134 55.62a54.7 54.7 0 0 1-10.86-1.083c-6.908 12.321-20.07 20.645-35.178 20.645a40.1 40.1 0 0 1-17.632-4.058c-7.002 16.47-23.316 28.019-42.33 28.019c-19.8 0-36.674-12.529-43.152-30.1c-2.83.602-5.763.915-8.772.915c-23.574 0-42.686-19.308-42.686-43.13a43.2 43.2 0 0 1 21.345-37.36a49.4 49.4 0 0 1-4.088-19.727C17.385 22.336 39.626.128 67.06.128c16.106 0 30.42 7.658 39.494 19.523"/><path fill="#fff" d="M37.17 92.956c-.16.419.058.506.11.58c.48.349.968.6 1.46.88c2.609 1.385 5.071 1.79 7.647 1.79c5.246 0 8.503-2.79 8.503-7.283v-.087c0-4.153-3.676-5.662-7.126-6.75l-.448-.147c-2.601-.845-4.845-1.573-4.845-3.286v-.09c0-1.465 1.311-2.544 3.344-2.544c2.259 0 4.94.75 6.667 1.705c0 0 .506.328.692-.164c.102-.262.976-2.615 1.068-2.87c.098-.277-.077-.481-.255-.59c-1.971-1.2-4.696-2.019-7.516-2.019l-.525.004c-4.801 0-8.153 2.9-8.153 7.057v.087c0 4.383 3.698 5.803 7.162 6.794l.558.172c2.524.775 4.7 1.442 4.7 3.22v.087c0 1.625-1.414 2.835-3.695 2.835c-.885 0-3.708-.018-6.758-1.946c-.368-.215-.583-.371-.867-.542c-.15-.095-.524-.26-.688.236zm76.8 0c-.16.419.058.506.11.58c.48.349.968.6 1.46.88c2.608 1.385 5.071 1.79 7.647 1.79c5.246 0 8.503-2.79 8.503-7.283v-.087c0-4.153-3.676-5.662-7.126-6.75l-.448-.147c-2.601-.845-4.846-1.573-4.846-3.286v-.09c0-1.465 1.312-2.544 3.345-2.544c2.259 0 4.94.75 6.667 1.705c0 0 .506.328.692-.164c.102-.262.976-2.615 1.067-2.87c.099-.277-.076-.481-.255-.59c-1.97-1.2-4.696-2.019-7.515-2.019l-.525.004c-4.802 0-8.153 2.9-8.153 7.057v.087c0 4.383 3.697 5.803 7.162 6.794l.557.172c2.525.775 4.704 1.442 4.704 3.22v.087c0 1.625-1.418 2.835-3.698 2.835a12.4 12.4 0 0 1-6.758-1.946c-.368-.215-.587-.364-.863-.542c-.095-.062-.54-.234-.693.236zm52.429-8.799c0 2.54-.474 4.54-1.406 5.953c-.922 1.4-2.317 2.08-4.263 2.08c-1.949 0-3.337-.677-4.244-2.08c-.918-1.41-1.384-3.413-1.384-5.953c0-2.535.466-4.532 1.384-5.93c.907-1.385 2.295-2.059 4.244-2.059c1.946 0 3.34.674 4.266 2.058c.93 1.4 1.403 3.396 1.403 5.931m4.379-4.707c-.43-1.453-1.1-2.735-1.993-3.803c-.893-1.071-2.022-1.93-3.363-2.557c-1.337-.623-2.918-.94-4.692-.94c-1.778 0-3.359.317-4.696.94c-1.34.626-2.47 1.486-3.366 2.557c-.889 1.071-1.56 2.354-1.993 3.803c-.426 1.447-.64 3.028-.64 4.707c0 1.68.214 3.265.64 4.707c.434 1.45 1.1 2.732 1.997 3.804a9.4 9.4 0 0 0 3.362 2.535c1.34.609 2.918.918 4.696.918c1.774 0 3.352-.31 4.692-.918a9.4 9.4 0 0 0 3.363-2.535c.893-1.068 1.563-2.35 1.993-3.804c.43-1.446.645-3.03.645-4.707c0-1.675-.215-3.26-.645-4.707m35.959 12.063c-.145-.426-.557-.266-.557-.266c-.637.244-1.315.47-2.036.583a16 16 0 0 1-2.401.171c-2.12 0-3.804-.63-5.01-1.876c-1.209-1.246-1.887-3.26-1.88-5.986c.008-2.48.606-4.346 1.68-5.767c1.068-1.413 2.692-2.138 4.86-2.138c1.807 0 3.184.207 4.627.663c0 0 .346.15.51-.303c.382-1.063.667-1.825 1.075-2.994c.116-.332-.168-.474-.27-.514c-.568-.222-1.909-.583-2.922-.736c-.947-.145-2.054-.222-3.286-.222c-1.84 0-3.479.313-4.882.94c-1.399.623-2.586 1.483-3.526 2.554s-1.654 2.353-2.131 3.803c-.474 1.446-.714 3.035-.714 4.714c0 3.632.98 6.569 2.914 8.718c1.938 2.157 4.85 3.253 8.645 3.253c2.244 0 4.547-.455 6.2-1.107c0 0 .318-.153.18-.521zm7.663-9.788c.207-1.41.597-2.583 1.198-3.497c.907-1.388 2.291-2.15 4.237-2.15c1.945 0 3.231.765 4.153 2.15c.612.914.878 2.138.983 3.497zm14.743-3.1c-.372-1.403-1.294-2.82-1.898-3.468c-.955-1.028-1.887-1.746-2.813-2.146a10.8 10.8 0 0 0-4.248-.86c-1.85 0-3.53.31-4.892.95c-1.366.642-2.514 1.516-3.414 2.606c-.9 1.085-1.577 2.379-2.007 3.847c-.434 1.46-.652 3.053-.652 4.732c0 1.709.226 3.3.674 4.732c.451 1.443 1.173 2.715 2.15 3.767c.972 1.06 2.225 1.891 3.726 2.47c1.49.576 3.3.875 5.38.871c4.281-.015 6.537-.969 7.465-1.483c.164-.09.321-.251.124-.71l-.969-2.714c-.145-.405-.557-.255-.557-.255c-1.06.393-2.568 1.1-6.084 1.093c-2.299-.004-4.004-.682-5.071-1.742c-1.097-1.085-1.632-2.68-1.727-4.932l14.824.014s.39-.007.43-.386c.014-.16.51-3.046-.441-6.386m-133.46 3.1c.211-1.41.597-2.583 1.199-3.497c.907-1.388 2.291-2.15 4.236-2.15c1.946 0 3.232.765 4.157 2.15c.609.914.875 2.138.98 3.497zm14.74-3.1c-.372-1.403-1.29-2.82-1.895-3.468c-.954-1.028-1.887-1.746-2.812-2.146a10.8 10.8 0 0 0-4.248-.86c-1.847 0-3.53.31-4.892.95c-1.367.642-2.514 1.516-3.414 2.606c-.9 1.085-1.577 2.379-2.007 3.847c-.43 1.46-.652 3.053-.652 4.732c0 1.709.225 3.3.674 4.732c.451 1.443 1.173 2.715 2.149 3.767c.973 1.06 2.226 1.891 3.727 2.47c1.49.576 3.3.875 5.38.871c4.281-.015 6.536-.969 7.465-1.483c.164-.09.32-.251.124-.71l-.965-2.714c-.15-.405-.561-.255-.561-.255c-1.06.393-2.565 1.1-6.088 1.093c-2.295-.004-4-.682-5.067-1.742c-1.097-1.085-1.633-2.68-1.727-4.932l14.823.014s.39-.007.43-.386c.015-.16.51-3.046-.444-6.386M63.642 91.431c-.58-.462-.66-.579-.856-.878c-.292-.455-.441-1.104-.441-1.927c0-1.304.43-2.24 1.322-2.87c-.01.003 1.275-1.112 4.3-1.072c2.123.03 4.021.343 4.021.343v6.74h.004s-1.884.404-4.004.531c-3.017.182-4.357-.87-4.346-.867m5.898-10.415c-.601-.044-1.38-.07-2.313-.07c-1.272 0-2.5.16-3.65.47a9.5 9.5 0 0 0-3.097 1.436a7.15 7.15 0 0 0-2.15 2.444c-.524.977-.79 2.128-.79 3.417c0 1.312.225 2.452.677 3.385a6.1 6.1 0 0 0 1.935 2.317c.823.601 1.84 1.042 3.02 1.308c1.162.266 2.48.4 3.923.4c1.52 0 3.035-.123 4.503-.375a94 94 0 0 0 3.734-.721c.492-.117 1.039-.266 1.039-.266c.368-.091.338-.485.338-.485l-.007-13.555c0-2.973-.794-5.177-2.357-6.543c-1.555-1.363-3.847-2.051-6.809-2.051c-1.11 0-2.9.153-3.97.368c0 0-3.24.626-4.573 1.668c0 0-.291.182-.131.59l1.05 2.82c.13.364.484.24.484.24s.113-.043.244-.12c2.852-1.552 6.459-1.504 6.459-1.504c1.603 0 2.834.32 3.665.958c.809.619 1.22 1.555 1.22 3.53v.626c-1.275-.182-2.444-.287-2.444-.287m119.56-7.639a.4.4 0 0 0-.223-.532c-.251-.098-1.512-.364-2.485-.426c-1.861-.113-2.896.2-3.821.616c-.918.415-1.938 1.085-2.507 1.847v-1.804c0-.251-.178-.451-.426-.451h-3.8c-.247 0-.426.2-.426.451v22.11c0 .248.204.452.452.452h3.894a.45.45 0 0 0 .448-.452V84.142c0-1.482.164-2.962.492-3.89c.32-.919.758-1.654 1.297-2.183a4.55 4.55 0 0 1 1.833-1.1c.688-.211 1.45-.28 1.989-.28c.776 0 1.628.2 1.628.2c.284.033.445-.142.54-.4c.254-.678.976-2.708 1.114-3.112"/><path fill="#fff" d="M152.544 63.13a13 13 0 0 0-1.465-.35a11.6 11.6 0 0 0-2.014-.152c-2.682 0-4.795.757-6.277 2.251c-1.476 1.486-2.478 3.749-2.98 6.725l-.183 1.002h-3.366s-.408-.015-.495.43l-.55 3.086c-.04.291.087.477.48.477h3.276l-3.323 18.55c-.258 1.494-.557 2.722-.889 3.654c-.324.918-.64 1.607-1.034 2.11c-.38.48-.736.838-1.356 1.045c-.51.172-1.1.252-1.745.252c-.357 0-.834-.059-1.187-.131a3.5 3.5 0 0 1-.802-.26s-.382-.145-.535.238c-.12.317-.995 2.717-1.1 3.013c-.102.295.043.524.229.593c.437.153.761.255 1.355.397c.824.194 1.52.204 2.172.204c1.362 0 2.608-.193 3.639-.564c1.035-.375 1.938-1.028 2.74-1.91c.863-.954 1.406-1.952 1.923-3.318c.514-1.348.955-3.024 1.304-4.976l3.341-18.897h4.882s.411.014.495-.434l.554-3.082c.036-.295-.087-.477-.485-.477h-4.74c.026-.106.241-1.774.784-3.344c.233-.667.67-1.21 1.038-1.581a3.1 3.1 0 0 1 1.243-.773c.47-.153 1.005-.226 1.592-.226c.444 0 .885.051 1.216.12c.46.099.638.15.758.186c.485.146.55.004.645-.23l1.133-3.11c.117-.335-.171-.478-.273-.518M86.322 95.19c0 .247-.179.448-.426.448h-3.931c-.248 0-.423-.2-.423-.448V63.553c0-.247.175-.448.423-.448h3.93c.248 0 .427.2.427.448z"/></svg><i>Pardot</i></span></div>
+    </div>
+  </div>
+</section>
+
+<p class="fine">Figures come from my own reporting at each company. Customer details are left out.</p>
+
+<footer>
+  <b>Brad Sebastian</b>
+  <span>bradsebastian98@gmail.com</span>
+  <span>713-256-1683</span>
+  <a href="https://www.linkedin.com/in/brad-sebastian" target="_blank" rel="noopener">linkedin.com/in/brad-sebastian</a>
+  <a href="https://bradsebastian.com/" target="_blank" rel="noopener">bradsebastian.com</a>
+</footer>
+</div>
+
+</body>
+</html>
