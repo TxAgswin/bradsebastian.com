@@ -256,38 +256,86 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
   .bills div{gap:8px}
   .flow div{margin:0 0 18px}
 }
-.peek{margin:28px 0 0 76px;display:flex;gap:14px;align-items:flex-start;background:var(--brad-bg);border:2px solid var(--brad);border-radius:var(--radius);padding:18px 20px}
+.peek{margin:20px 0 0 0;display:flex;gap:14px;align-items:flex-start;background:var(--brad-bg);border:2px solid var(--brad);border-radius:var(--radius);padding:18px 20px}
 .peek p{margin:0;color:var(--ink-2);font-size:15.5px}
 .peek b{color:var(--brad-ink)}
 @media(max-width:640px){.peek{margin-left:0;flex-direction:column}}
 .ainote{margin:36px 0 0 76px;font-size:14px;color:var(--muted)}
 .ainote b{color:var(--ink-2)}
 @media(max-width:640px){.ainote{margin-left:0}}
-.wf-wrap{margin-top:24px;overflow-x:auto;border-radius:12px;border:1px solid #cbd6e2;box-shadow:var(--shadow)}
-.wf{min-width:640px;background:#f5f8fa;font:14px/1.4 "Lexend Deca",Inter,Arial,sans-serif;color:#33475b}
-.wf-top{display:flex;align-items:center;gap:14px;background:#fff;border-bottom:1px solid #cbd6e2;padding:12px 18px}
-.wf-name{font-weight:600;font-size:15px}.wf-meta{color:#7c98b6;font-size:13px}
-.wf-on{margin-left:auto;background:#00bda5;color:#fff;font-weight:700;font-size:11px;letter-spacing:.06em;padding:4px 10px;border-radius:12px}
-.wf-canvas{display:flex;flex-direction:column;align-items:center;padding:28px 18px 32px;background-image:radial-gradient(#dfe3eb 1px,transparent 1px);background-size:16px 16px}
-.node{width:300px;background:#fff;border:1px solid #cbd6e2;border-radius:6px;box-shadow:0 1px 2px rgba(45,62,80,.08);overflow:hidden}
-.node .nh{padding:8px 12px;font-weight:600;font-size:13px;border-bottom:1px solid #eaf0f6;display:flex;gap:8px;align-items:center}
-.node .nh i{font-style:normal;width:22px;height:22px;border-radius:4px;display:grid;place-items:center;font-size:12px;background:#eaf0f6;color:#516f90}
-.node .nb{padding:10px 12px;font-size:13px;color:#516f90}
-.node .nb b{color:#33475b;font-weight:600}
-.node.trig{border-top:3px solid #ff7a59}.node.trig .nh{color:#ff5c35}
-.node.act{border-top:3px solid #00a4bd}
-.node.br{border-top:3px solid #7c98b6}
-.node.end{width:auto;padding:6px 18px;border-radius:14px;font-weight:600;color:#7c98b6;text-align:center}
-.or{display:inline-block;font-size:10px;font-weight:700;color:#7c98b6;background:#eaf0f6;border-radius:3px;padding:0 5px;margin:2px 0}
-.ln{width:2px;height:22px;background:#99afc4}
-.ln.s{height:16px}
-.split{display:flex;gap:28px;position:relative;padding-top:22px}
-.split::before{content:"";position:absolute;top:0;left:25%;right:25%;height:2px;background:#99afc4}
-.split .wfc{display:flex;flex-direction:column;align-items:center;position:relative}
-.split .wfc::before{content:"";position:absolute;top:-22px;left:50%;width:2px;height:22px;background:#99afc4}
-.split .node{width:260px}
-.bl{font-size:11px;font-weight:700;color:#516f90;background:#fff;border:1px solid #cbd6e2;border-radius:10px;padding:1px 9px;margin-bottom:8px}
-.split+.ln{margin-top:0}
+.wf-wrap{margin-top:24px;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:6px;border:1px solid #cbd6e2;box-shadow:0 1px 3px rgba(45,62,80,.12);background:#eaf0f6}
+.wf{min-width:940px;background:#eaf0f6;font:13px/1.45 "Lexend Deca","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;color:#33475b;-webkit-font-smoothing:antialiased}
+.wf svg{display:block;width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wf-top{position:relative;display:flex;align-items:center;height:46px;padding:0 12px 0 16px;background:#2d3e50;color:#fff}
+.wf-back{display:flex;align-items:center;gap:4px;font-size:13px;font-weight:600}
+.wf-back svg{width:16px;height:16px;stroke-width:2.5}
+.wf-name{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;white-space:nowrap}
+.wf-name svg{width:14px;height:14px}
+.wf-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.wf-on{font-size:11px}
+.wf-btn{background:#ff7a59;color:#fff;font-size:13px;font-weight:600;border-radius:3px;padding:9px 22px;white-space:nowrap}
+.wf-menu{display:flex;align-items:center;gap:30px;height:42px;padding:0 16px 0 30px;background:#fff;border-bottom:1px solid #cbd6e2;font-size:13px;color:#33475b}
+.wf-menu span{display:flex;align-items:center;gap:5px}
+.wf-menu svg{width:12px;height:12px}
+.wf-goal{margin-left:auto;font-size:11.5px;color:#516f90}
+.wf-goal b{color:#0091ae;font-weight:600}
+.wf-test{font-size:11px;color:#516f90;background:#eaf0f6;border:1px solid #cbd6e2;border-radius:3px;padding:3px 10px;margin-left:-14px}
+.wf-canvas{position:relative;display:flex;flex-direction:column;align-items:center;padding:22px 16px 26px;background:#eaf0f6}
+.wf-zoom{position:absolute;top:16px;left:16px;display:flex;flex-direction:column;gap:12px}
+.wf-zoom div{display:flex;align-items:center;gap:8px;font-size:11px;color:#516f90}
+.wf-zb{display:flex}
+.wf-zb i{display:grid;place-items:center;width:28px;height:28px;background:#f5f8fa;border:1px solid #cbd6e2;color:#7c98b6;font-style:normal}
+.wf-zb i+i{border-left:0}
+.wf-zb.on i{background:#fff;color:#33475b}
+.wf-zoom a{color:#0091ae;font-weight:600;font-size:13px;text-decoration:none}
+.wf-card{width:330px;background:#fff;border:1px solid #cbd6e2;border-radius:3px;text-align:left}
+.wf-ch{display:flex;align-items:center;gap:10px;padding:12px 14px 4px;font-size:11.5px;font-weight:600;color:#33475b}
+.wf-ic{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid #516f90;display:grid;place-items:center;color:#516f90}
+.wf-ic svg{width:13px;height:13px}
+.wf-cb{padding:8px 14px 14px;font-size:12.5px;color:#33475b}
+.wf-cb b{font-weight:600}
+.wf-cb a,.wf-cb .wf-t{color:#0091ae;font-weight:600;text-decoration:none}
+.wf-note{display:block;margin-top:5px;font-size:11.5px;color:#7c98b6}
+.wf-cf{display:flex;align-items:center;gap:9px;padding:8px 14px;border-top:1px solid #dfe3eb;color:#7c98b6}
+.wf-cf svg{width:13px;height:13px}
+.wf-sd{margin-left:auto;display:flex;align-items:center;gap:5px;color:#0091ae;font-size:12px;font-weight:600}
+.wf-first{border-top:4px solid #00bda5}
+.wf-trig .wf-ch{padding:9px 12px;border-bottom:1px solid #cbd6e2;font-size:12px;font-weight:500;gap:7px}
+.wf-trig .wf-ch svg{width:13px;height:13px;color:#33475b}
+.wf-tb{margin:12px;padding:10px;background:#f5f8fa;border:1px solid #cbd6e2}
+.wf-crit{background:#fff;border:1px solid #cbd6e2;padding:8px 10px;font-size:12.5px}
+.wf-crit b{font-weight:600}
+.wf-crit+.wf-crit{margin-top:8px}
+.wf-and{padding:0!important}
+.wf-and>span{display:block;padding:6px 10px;border-bottom:1px solid #cbd6e2;font-size:12px;font-weight:600}
+.wf-and>div{padding:8px 10px}
+.wf-canvas>.wf-trig{width:400px}
+.wf-ln{position:relative;width:2px;height:22px;background:#7c98b6;flex:none}
+.wf-ln.p{height:44px}
+.wf-ln.p::after,.wf-hl::after{content:"+";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:#dfe5ed;border:1.5px solid #516f90;color:#33475b;font:400 20px/24px Arial,sans-serif;text-align:center}
+.wf-ln.s{height:16px}
+.wf-split{display:flex;gap:16px;position:relative;align-items:stretch}
+.wf-split::before,.wf-split.m::after{content:"";position:absolute;height:2px;background:#7c98b6;left:calc(50% / var(--n));right:calc(50% / var(--n))}
+.wf-split::before{top:0}.wf-split.m::after{bottom:0}
+.wf-lane{flex:1 1 0;display:flex;flex-direction:column;align-items:center}
+.wf-fill{flex:1 0 16px;width:2px;background:#7c98b6}
+.wf-split .wf-card{width:260px}
+.wf-split.r{gap:10px}
+.wf-split.r .wf-card{width:170px}
+.wf-split.r .wf-ch{padding:10px 10px 2px;gap:7px}
+.wf-split.r .wf-ic{width:24px;height:24px}
+.wf-split.r .wf-cb{padding:6px 10px 10px}
+.wf-split.r .wf-cf{padding:7px 10px;gap:8px}
+.wf-bl{flex:none;font-size:12px;font-weight:600;color:#33475b;background:#e5f8f6;border:1px solid #00bda5;border-radius:1px;padding:3px 10px;white-space:nowrap}
+.wf-bl.none{background:#fde8e9;border-color:#f2545b}
+.wf-end{flex:none;font-size:12px;font-weight:600;letter-spacing:.02em;color:#33475b;background:#fff;border:1px solid #00bda5;border-radius:16px;padding:5px 22px}
+.wf-sub{border-top:1px solid #cbd6e2}
+.wf-sub .wf-top{height:40px}
+.wf-row{display:flex;align-items:center;justify-content:center;padding:22px 16px 24px;background:#eaf0f6}
+.wf-row .wf-card{width:240px}
+.wf-row .wf-tb{margin:10px;padding:8px}
+.wf-hl{position:relative;flex:none;width:44px;height:2px;background:#7c98b6}
+.wf-hl.e{width:28px}.wf-hl.e::after{display:none}
 </style>
 </head>
 <body>
@@ -459,48 +507,82 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
   </div>
 
 
-  <div class="peek">
-    <span class="tag brad">Brad</span>
-    <p><b>A quick look at your stack:</b> your marketing subdomain points to HubSpot, and the main site runs a big paid-media and connected-TV stack through Google Tag Manager. I've built HubSpot from the ground up as an architect and super admin: Marketing, Sales and Service Hubs, custom objects and workflows. A campaign like this one, triggered by plan renewals and rate changes and personalized for each member, is something I can build for real.</p>
-  </div>
   <!-- workflow -->
   <div class="step">
     <div class="num">4</div>
     <div>
       <h3 class="h3-tag">The workflow behind it</h3>
       <p class="sub">When each message goes out, and what happens after a member comes back.</p>
-      <div class="wf-wrap"><div class="wf">
-  <div class="wf-top"><span class="wf-name">Former Members: Win-back savings check</span><span class="wf-meta">Contact-based workflow</span><span class="wf-on">ON</span></div>
+      <div class="peek">
+    <span class="tag brad">Brad</span>
+    <p>I noticed you've got HubSpot in your stack. I'm a HubSpot architect, so here's roughly how I'd build this campaign in your portal.</p>
+  </div>
+      <div class="wf-wrap"><div class="wf" role="img" aria-label="HubSpot workflow mock: Former Members win-back savings check, plus a Rejoin onboarding workflow">
+  <div class="wf-top"><span class="wf-back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Back to workflows</span><span class="wf-name">Former Members: Win-back savings check<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
+    <span class="wf-right"><span class="wf-on">Workflow is ON</span><span class="wf-btn">Review and publish</span></span></div>
+  <div class="wf-menu"><span>File<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span>Edit<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span>Settings</span><span>View<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span>Help<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="wf-goal">Goal: <b>Lifecycle stage is Customer</b></span><span class="wf-test">Test</span></div>
   <div class="wf-canvas">
-    <div class="node trig"><div class="nh">Enrollment trigger</div><div class="nb"><b>Contact is member of list</b> Former Members<br><span class="or">AND</span> Plan renewal date is within 45 days <span class="or">OR</span> Market rate change &gt; 10%</div></div>
-    <div class="ln"></div>
-    <div class="node br"><div class="nh"><i>⑂</i> If/then branch</div><div class="nb">Avg. monthly usage (kWh) is greater than 1,500</div></div>
-    <div class="split"><div class="wfc"><span class="bl">Yes</span>
-        <div class="node act"><div class="nh"><i>✎</i> Set property value</div><div class="nb">Email content variant = High usage</div></div></div>
-      <div class="wfc"><span class="bl">No</span>
-        <div class="node act"><div class="nh"><i>✎</i> Set property value</div><div class="nb">Email content variant = Standard</div></div></div></div>
-    <div class="ln"></div>
-    <div class="node act"><div class="nh"><i>✉</i> Send marketing email</div><div class="nb">Savings check, by content variant: subject test A to E</div></div>
-    <div class="ln"></div>
-    <div class="node act"><div class="nh"><i>⏱</i> Delay</div><div class="nb">3 days</div></div>
-    <div class="ln"></div>
-    <div class="node br"><div class="nh"><i>⑂</i> If/then branch</div><div class="nb">Clicked "See my rate analysis" button</div></div>
-    <div class="split"><div class="wfc"><span class="bl">Yes</span>
-        <div class="node act"><div class="nh"><i>☑</i> Create task</div><div class="nb">Member team: call within 24 hours</div></div>
-        <div class="ln s"></div>
-        <div class="node act"><div class="nh"><i>↻</i> Enroll in workflow</div><div class="nb">Rejoin onboarding</div></div></div>
-      <div class="wfc"><span class="bl">No</span>
-        <div class="node act"><div class="nh"><i>💬</i> Send SMS</div><div class="nb">"Your electricity rate is up 69% since you left…"</div></div>
-        <div class="ln s"></div>
-        <div class="node act"><div class="nh"><i>⏱</i> Delay</div><div class="nb">7 days, then resend email variant B</div></div></div></div>
-    <div class="ln"></div>
-    <div class="node br"><div class="nh"><i>★</i> Goal: Contact rejoins</div><div class="nb">Lifecycle stage is Customer → unenroll</div></div>
-    <div class="ln"></div>
-    <div class="node act"><div class="nh"><i>⏱</i> Delay</div><div class="nb">30 days after rejoin</div></div>
-    <div class="ln"></div>
-    <div class="node act"><div class="nh"><i>✉</i> Send marketing email</div><div class="nb">First savings report + review ask + Refer-a-Friend</div></div>
-    <div class="ln"></div>
-    <div class="node end">End</div>
+    <div class="wf-zoom"><div><span class="wf-zb"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg></i><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 14 5-5-5-5"/><path d="M20 9H9a5 5 0 0 0 0 10h3"/></svg></i></span><span class="wf-zb on"><i>+</i><i>&minus;</i></span>100%</div><a>Show minimap panel</a></div>
+    <div class="wf-card wf-trig"><div class="wf-ch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Contact enrollment trigger</div>
+      <div class="wf-tb"><div class="wf-crit"><b>List membership</b> is member of <b>Former Members</b></div>
+        <div class="wf-crit wf-and"><span>AND</span><div><b>Contract end date</b> is less than <b>45 days</b> from now</div></div></div>
+      <div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+    <div class="wf-ln p"></div>
+    <div class="wf-card"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></svg></span>1. Branch</div><div class="wf-cb">Go to <b>High usage</b> if these criteria are met:<br><b>Avg. monthly usage (kWh) is greater than 1,500</b></div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+    <div class="wf-ln s"></div>
+    <div class="wf-split m" style="--n:2">
+      <div class="wf-lane"><div class="wf-ln s"></div><span class="wf-bl">High usage</span><div class="wf-ln p"></div>
+        <div class="wf-card wf-first"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>2. Set property value</div><div class="wf-cb">Set <span class="wf-t">Email content variant</span> to <b>High usage</b>.</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div><div class="wf-fill"></div></div>
+      <div class="wf-lane"><div class="wf-ln s"></div><span class="wf-bl none">None met</span><div class="wf-ln p"></div>
+        <div class="wf-card wf-first"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>3. Set property value</div><div class="wf-cb">Set <span class="wf-t">Email content variant</span> to <b>Standard</b>.</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div><div class="wf-fill"></div></div>
+    </div>
+    <div class="wf-ln p"></div>
+    <div class="wf-card"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="m4 4 5 5"/></svg></span>4. Branch</div><div class="wf-cb">Randomly split contacts into <b>5 branches, 20% each</b><span class="wf-note">Subject-line test: one email version per branch; smart content reads the variant set above</span></div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+    <div class="wf-ln s"></div>
+    <div class="wf-split r m" style="--n:5">
+      <div class="wf-lane"><div class="wf-ln s"></div><span class="wf-bl">Path A · 20%</span><div class="wf-ln p"></div>
+        <div class="wf-card wf-first"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>5. Send marketing email</div><div class="wf-cb">Send <span class="wf-t">Savings check</span>, subject A</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div><div class="wf-fill"></div></div>
+      <div class="wf-lane"><div class="wf-ln s"></div><span class="wf-bl">Path B · 20%</span><div class="wf-ln p"></div>
+        <div class="wf-card wf-first"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>6. Send marketing email</div><div class="wf-cb">Send <span class="wf-t">Savings check</span>, subject B</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div><div class="wf-fill"></div></div>
+      <div class="wf-lane"><div class="wf-ln s"></div><span class="wf-bl">Path C · 20%</span><div class="wf-ln p"></div>
+        <div class="wf-card wf-first"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>7. Send marketing email</div><div class="wf-cb">Send <span class="wf-t">Savings check</span>, subject C</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div><div class="wf-fill"></div></div>
+      <div class="wf-lane"><div class="wf-ln s"></div><span class="wf-bl">Path D · 20%</span><div class="wf-ln p"></div>
+        <div class="wf-card wf-first"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>8. Send marketing email</div><div class="wf-cb">Send <span class="wf-t">Savings check</span>, subject D</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div><div class="wf-fill"></div></div>
+      <div class="wf-lane"><div class="wf-ln s"></div><span class="wf-bl">Path E · 20%</span><div class="wf-ln p"></div>
+        <div class="wf-card wf-first"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>9. Send marketing email</div><div class="wf-cb">Send <span class="wf-t">Savings check</span>, subject E</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div><div class="wf-fill"></div></div>
+    </div>
+    <div class="wf-ln p"></div>
+    <div class="wf-card"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>10. Delay for a set amount of time</div><div class="wf-cb">Delay for <b>3 days</b></div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+    <div class="wf-ln p"></div>
+    <div class="wf-card"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></svg></span>11. Branch</div><div class="wf-cb">Go to <b>Clicked</b> if these criteria are met:<br><b>Clicked link</b> <span class="wf-t">See my rate analysis</span> in <span class="wf-t">Savings check</span> (any version)</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+    <div class="wf-ln s"></div>
+    <div class="wf-split" style="--n:2">
+      <div class="wf-lane"><div class="wf-ln s"></div><span class="wf-bl">Clicked</span><div class="wf-ln p"></div>
+        <div class="wf-card wf-first"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="m8 12 3 3 5-6"/></svg></span>12. Create task</div><div class="wf-cb">Create task <span class="wf-t">Call about rate analysis</span>, assigned to <b>Member team</b>, due in <b>1 business day</b>.</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+        <div class="wf-ln p"></div>
+        <div class="wf-card"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>13. Set property value</div><div class="wf-cb">Set <span class="wf-t">Win-back status</span> to <b>Engaged</b>.</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+        <div class="wf-fill"></div><span class="wf-end">END</span></div>
+      <div class="wf-lane"><div class="wf-ln s"></div><span class="wf-bl none">None met</span><div class="wf-ln p"></div>
+        <div class="wf-card wf-first"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span>14. Send SMS</div><div class="wf-cb">"Your electricity rate is up 69% since you left. Want us to check…"<span class="wf-note">Sends only to contacts subscribed to SMS</span></div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+        <div class="wf-ln p"></div>
+        <div class="wf-card"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>15. Delay for a set amount of time</div><div class="wf-cb">Delay for <b>4 days</b></div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+        <div class="wf-ln p"></div>
+        <div class="wf-card"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>16. Send marketing email</div><div class="wf-cb">Send <span class="wf-t">Savings check: resend</span> with the winning subject line.</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Show details</span></div></div>
+        <div class="wf-fill"></div><span class="wf-end">END</span></div>
+    </div>
+  </div>
+  <div class="wf-sub">
+    <div class="wf-top"><span class="wf-back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Back to workflows</span><span class="wf-name">Rejoin onboarding<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><span class="wf-right"><span class="wf-on">Workflow is ON</span></span></div>
+    <div class="wf-row">
+      <div class="wf-card wf-trig"><div class="wf-ch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Contact enrollment trigger</div>
+        <div class="wf-tb"><div class="wf-crit"><b>Lifecycle stage</b> is <b>Customer</b></div><div class="wf-crit wf-and"><span>AND</span><div><b>Former member</b> is <b>Yes</b></div></div></div></div>
+      <div class="wf-hl"></div>
+      <div class="wf-card"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>1. Delay for a set amount of time</div><div class="wf-cb">Delay for <b>30 days</b></div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div>
+      <div class="wf-hl"></div>
+      <div class="wf-card"><div class="wf-ch"><span class="wf-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>2. Send marketing email</div><div class="wf-cb">Send <span class="wf-t">First savings report</span> with review ask + Refer-a-Friend.</div><div class="wf-cf"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15"/></svg><span class="wf-sd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span></div></div>
+      <div class="wf-hl e"></div>
+      <span class="wf-end">END</span>
+    </div>
   </div>
 </div></div>
 
