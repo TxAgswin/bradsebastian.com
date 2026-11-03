@@ -263,6 +263,31 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
 .ainote{margin:36px 0 0 76px;font-size:14px;color:var(--muted)}
 .ainote b{color:var(--ink-2)}
 @media(max-width:640px){.ainote{margin-left:0}}
+.wf-wrap{margin-top:24px;overflow-x:auto;border-radius:12px;border:1px solid #cbd6e2;box-shadow:var(--shadow)}
+.wf{min-width:640px;background:#f5f8fa;font:14px/1.4 "Lexend Deca",Inter,Arial,sans-serif;color:#33475b}
+.wf-top{display:flex;align-items:center;gap:14px;background:#fff;border-bottom:1px solid #cbd6e2;padding:12px 18px}
+.wf-name{font-weight:600;font-size:15px}.wf-meta{color:#7c98b6;font-size:13px}
+.wf-on{margin-left:auto;background:#00bda5;color:#fff;font-weight:700;font-size:11px;letter-spacing:.06em;padding:4px 10px;border-radius:12px}
+.wf-canvas{display:flex;flex-direction:column;align-items:center;padding:28px 18px 32px;background-image:radial-gradient(#dfe3eb 1px,transparent 1px);background-size:16px 16px}
+.node{width:300px;background:#fff;border:1px solid #cbd6e2;border-radius:6px;box-shadow:0 1px 2px rgba(45,62,80,.08);overflow:hidden}
+.node .nh{padding:8px 12px;font-weight:600;font-size:13px;border-bottom:1px solid #eaf0f6;display:flex;gap:8px;align-items:center}
+.node .nh i{font-style:normal;width:22px;height:22px;border-radius:4px;display:grid;place-items:center;font-size:12px;background:#eaf0f6;color:#516f90}
+.node .nb{padding:10px 12px;font-size:13px;color:#516f90}
+.node .nb b{color:#33475b;font-weight:600}
+.node.trig{border-top:3px solid #ff7a59}.node.trig .nh{color:#ff5c35}
+.node.act{border-top:3px solid #00a4bd}
+.node.br{border-top:3px solid #7c98b6}
+.node.end{width:auto;padding:6px 18px;border-radius:14px;font-weight:600;color:#7c98b6;text-align:center}
+.or{display:inline-block;font-size:10px;font-weight:700;color:#7c98b6;background:#eaf0f6;border-radius:3px;padding:0 5px;margin:2px 0}
+.ln{width:2px;height:22px;background:#99afc4}
+.ln.s{height:16px}
+.split{display:flex;gap:28px;position:relative;padding-top:22px}
+.split::before{content:"";position:absolute;top:0;left:25%;right:25%;height:2px;background:#99afc4}
+.split .wfc{display:flex;flex-direction:column;align-items:center;position:relative}
+.split .wfc::before{content:"";position:absolute;top:-22px;left:50%;width:2px;height:22px;background:#99afc4}
+.split .node{width:260px}
+.bl{font-size:11px;font-weight:700;color:#516f90;background:#fff;border:1px solid #cbd6e2;border-radius:10px;padding:1px 9px;margin-bottom:8px}
+.split+.ln{margin-top:0}
 </style>
 </head>
 <body>
@@ -444,13 +469,41 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
     <div>
       <h3 class="h3-tag">The workflow behind it</h3>
       <p class="sub">When each message goes out, and what happens after a member comes back.</p>
-      <div class="flow">
-        <div><span class="t">Trigger</span><b>A reason to reach out</b>Plan renewal within 45 days, a rate jump in the market, or 90 days since cancellation.</div>
-        <div><span class="t">Day 0</span><b>Savings-check email</b>Personalized comparison built from the member's last known usage and plan.</div>
-        <div><span class="t">Day 3</span><b>SMS nudge</b>Only for opens without a click. One line, one reply.</div>
-        <div><span class="t">Rejoin</span><b>Welcome back</b>Onboarding restarts with their history, so they don't start from zero.</div>
-        <div><span class="t">Rejoin + 30</span><b>Proof &amp; referral</b>First savings report, then a review ask and a Refer-a-Friend prompt.</div>
-      </div>
+      <div class="wf-wrap"><div class="wf">
+  <div class="wf-top"><span class="wf-name">Former Members: Win-back savings check</span><span class="wf-meta">Contact-based workflow</span><span class="wf-on">ON</span></div>
+  <div class="wf-canvas">
+    <div class="node trig"><div class="nh">Enrollment trigger</div><div class="nb"><b>Contact is member of list</b> Former Members<br><span class="or">AND</span> Plan renewal date is within 45 days <span class="or">OR</span> Market rate change &gt; 10%</div></div>
+    <div class="ln"></div>
+    <div class="node br"><div class="nh"><i>⑂</i> If/then branch</div><div class="nb">Avg. monthly usage (kWh) is greater than 1,500</div></div>
+    <div class="split"><div class="wfc"><span class="bl">Yes</span>
+        <div class="node act"><div class="nh"><i>✎</i> Set property value</div><div class="nb">Email content variant = High usage</div></div></div>
+      <div class="wfc"><span class="bl">No</span>
+        <div class="node act"><div class="nh"><i>✎</i> Set property value</div><div class="nb">Email content variant = Standard</div></div></div></div>
+    <div class="ln"></div>
+    <div class="node act"><div class="nh"><i>✉</i> Send marketing email</div><div class="nb">Savings check, by content variant: subject test A to E</div></div>
+    <div class="ln"></div>
+    <div class="node act"><div class="nh"><i>⏱</i> Delay</div><div class="nb">3 days</div></div>
+    <div class="ln"></div>
+    <div class="node br"><div class="nh"><i>⑂</i> If/then branch</div><div class="nb">Clicked "See my rate analysis" button</div></div>
+    <div class="split"><div class="wfc"><span class="bl">Yes</span>
+        <div class="node act"><div class="nh"><i>☑</i> Create task</div><div class="nb">Member team: call within 24 hours</div></div>
+        <div class="ln s"></div>
+        <div class="node act"><div class="nh"><i>↻</i> Enroll in workflow</div><div class="nb">Rejoin onboarding</div></div></div>
+      <div class="wfc"><span class="bl">No</span>
+        <div class="node act"><div class="nh"><i>💬</i> Send SMS</div><div class="nb">"Your electricity rate is up 69% since you left…"</div></div>
+        <div class="ln s"></div>
+        <div class="node act"><div class="nh"><i>⏱</i> Delay</div><div class="nb">7 days, then resend email variant B</div></div></div></div>
+    <div class="ln"></div>
+    <div class="node br"><div class="nh"><i>★</i> Goal: Contact rejoins</div><div class="nb">Lifecycle stage is Customer → unenroll</div></div>
+    <div class="ln"></div>
+    <div class="node act"><div class="nh"><i>⏱</i> Delay</div><div class="nb">30 days after rejoin</div></div>
+    <div class="ln"></div>
+    <div class="node act"><div class="nh"><i>✉</i> Send marketing email</div><div class="nb">First savings report + review ask + Refer-a-Friend</div></div>
+    <div class="ln"></div>
+    <div class="node end">End</div>
+  </div>
+</div></div>
+
     </div>
   </div>
 
