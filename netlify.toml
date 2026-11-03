@@ -13,3 +13,8 @@
   for = "/BradSebastian_Resume.pdf"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+[[redirects]]
+  from = "/energy-ogre"
+  to = "/energy-ogre-work-samples/"
+  status = 301
