@@ -338,6 +338,26 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
 .wf-hl.e{width:28px}.wf-hl.e::after{display:none}
 .toc b{margin:0}
 .toc a{padding:16px 20px}
+/* lifecycle section */
+.toc.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:820px){.toc.four{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.toc.four{grid-template-columns:1fr}}
+.seq{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:30px}
+@media(max-width:900px){.seq{grid-template-columns:1fr 1fr}}
+.seq button{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;font:500 13.5px/1.4 Inter,sans-serif;color:var(--ink-2);box-shadow:var(--shadow)}
+.seq button b{display:block;font:700 10px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-2);margin-bottom:6px}
+.seq button.on{border:2px solid var(--brad);background:var(--brad-bg);color:var(--ink)}
+.seq button.on b{color:var(--brad-ink)}
+.mail-body ul{margin:0 0 14px;padding-left:20px;font-size:15px;color:var(--ink)}
+.mail-body li{margin-bottom:6px}
+.cartrow{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink-2)}
+.code{font:600 13px "JetBrains Mono",monospace;background:#fff6e5;border:1px dashed #d9a441;border-radius:6px;padding:2px 7px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+@media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.stat b{display:block;font:700 34px/1 Fraunces,serif;color:var(--brad);margin-bottom:8px}
+.stat span{font-size:14px;color:var(--ink-2)}
+.subhead{margin-top:56px}
 </style>
 </head>
 <body>
@@ -348,6 +368,7 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
     <li><a href="#ai">AI sample</a></li>
     <li><a href="#writing">Writing</a></li>
     <li><a href="#video">Video</a></li>
+    <li><a href="#lifecycle">Lifecycle &amp; trust</a></li>
     <li><a href="#contact">Résumé</a></li>
   </ul>
 </div></nav>
@@ -355,11 +376,12 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
 <header class="hero" id="top"><div class="wrap">
   <div class="eyebrow">Marketing Manager application · Energy Ogre</div>
   <h1>Work samples</h1>
-  <p class="lede">Hi Ashley. The posting asked for writing samples, and the application didn't have a spot to upload them, so I put everything together here. You'll find the AI-assisted sample, some blog posts I wrote for NorthSky Supply, and a video I created at Raise3D. My résumé, cover letter and contact info are at the bottom.</p>
-  <div class="toc">
+  <p class="lede">Hi Ashley. The posting asked for writing samples, and the application didn't have a spot to upload them, so I put everything together here. You'll find the AI-assisted sample, some blog posts I wrote for NorthSky Supply, a video I created at Raise3D, and the cart recovery and Trustpilot programs I built at NorthSky. My résumé, cover letter and contact info are at the bottom.</p>
+  <div class="toc four">
     <a href="#ai"><b>01 · AI-assisted sample</b></a>
     <a href="#writing"><b>02 · Writing samples</b></a>
     <a href="#video"><b>03 · Video sample</b></a>
+    <a href="#lifecycle"><b>04 · Lifecycle &amp; trust</b></a>
   </div>
 </div></header>
 
@@ -632,6 +654,59 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
   </div>
 </div></section>
 
+<!-- ============ 04 LIFECYCLE ============ -->
+<section id="lifecycle"><div class="wrap">
+  <div class="eyebrow">04 · Lifecycle &amp; trust</div>
+  <h2>Lifecycle and trust campaigns</h2>
+  <p class="lede">Two programs I built at NorthSky Supply: a six-email cart recovery sequence in HubSpot, and the Trustpilot review program that backed our trust campaigns in Google Ads and HubSpot.</p>
+
+  <h3 class="subhead">Cart recovery sequence · HubSpot</h3>
+  <p class="sub" style="color:var(--ink-2);margin:8px 0 0;max-width:760px">Each email does a different job: remind, prove, create urgency, then add an incentive only at the end. The 5% and 10% offers are held to the last two emails, so the discount is the last lever, not the first. Cart contents pull in from Shopify through the HubSpot integration.</p>
+  <div class="seq" role="tablist" aria-label="Cart recovery emails">
+    <button data-s="0" class="on" role="tab"><b>Email 1 · Remind</b>Did you forget something?</button>
+    <button data-s="1" role="tab"><b>Email 2 · Prove</b>Why NorthSky?</button>
+    <button data-s="2" role="tab"><b>Email 3 · Urgency</b>Your cart is waiting</button>
+    <button data-s="3" role="tab"><b>Email 4 · Last reminder</b>About to expire</button>
+    <button data-s="4" role="tab"><b>Email 5 · Offer</b>Save 5%</button>
+    <button data-s="5" role="tab"><b>Email 6 · Best offer</b>Save 10%</button>
+  </div>
+  <div class="email-stage" style="margin-top:20px">
+    <div>
+      <div class="inbox"><div class="from">NorthSky</div><div class="subj" id="sq-subj"></div><div class="pre" id="sq-pre"></div></div>
+      <div class="email">
+        <div class="bar">NorthSky Supply <small>Built Strong, Priced Right</small></div>
+        <div class="body mail-body" id="sq-body"></div>
+      </div>
+    </div>
+    <div class="side">
+      <h4>How it's built</h4>
+      <ul>
+        <li>HubSpot workflow triggered by an abandoned Shopify cart</li>
+        <li>Personalization and live cart contents in every email</li>
+                <li>Discount codes only in the last two emails</li>
+      </ul>
+      <h4>Shown as sent</h4>
+      <ul>
+        <li>Copy is from the HubSpot emails as they arrived in my inbox in February and March 2025</li>
+        <li>Customer name replaced with a placeholder; cart shortened to two items</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="subhead">Trustpilot review program</h3>
+  <p class="sub" style="color:var(--ink-2);margin:8px 0 0;max-width:760px">I launched NorthSky's Trustpilot program in early 2025 and used the reviews as proof in our Google Ads and HubSpot campaigns. The profile is public and still collecting reviews.</p>
+  <div class="stats">
+    <div class="stat"><b>4.3</b><span>TrustScore</span></div>
+    <div class="stat"><b>196</b><span>Reviews</span></div>
+    <div class="stat"><b>82%</b><span>Five-star reviews</span></div>
+    <div class="stat"><b>Feb 2025</b><span>Profile claimed</span></div>
+  </div>
+  <div class="allposts">
+    <a class="btn sec" href="https://www.trustpilot.com/review/northskysupply.com" target="_blank" rel="noopener" id="tp-link">See the NorthSky Trustpilot profile →</a>
+    <span class="small">Figures from Trustpilot, November 11, 2026</span>
+  </div>
+</div></section>
+
 <footer id="contact"><div class="wrap">
   <div class="contact">
     <div class="contact-main">
@@ -645,7 +720,7 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
       <li><a href="Brad_Sebastian_Cover_Letter.pdf" download><span class="doc-name">Cover letter</span><span class="doc-meta">PDF · 1 page</span><span class="doc-dl" aria-hidden="true">↓</span></a></li>
     </ul>
   </div>
-  <p class="small fine-print">Spec work for my Energy Ogre application. Campaign figures are illustrative.</p>
+  <p class="small fine-print">The AI-assisted sample is spec work for my Energy Ogre application, and its campaign figures are illustrative. The NorthSky emails and Trustpilot figures are real.</p>
 </div></footer>
 
 <script>
@@ -662,6 +737,28 @@ document.querySelectorAll('.variants button').forEach(b=>b.addEventListener('cli
 const r=document.getElementById('reveal'),a=document.getElementById('analysis');
 r.addEventListener('click',()=>{const o=a.classList.toggle('show');a.classList.toggle('hidden',!o);r.setAttribute('aria-expanded',o);r.textContent=o?'Hide my rate analysis':'See my rate analysis';});
 document.getElementById('play').addEventListener('click',()=>{document.getElementById('vf').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/V7a7ggAIqkY?autoplay=1" title="Smart Eggs video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';});
+
+const CART='<p><span class="f">{cart_items}</span></p><div class="cartrow"><span>Digital Clamp Meter, 1000A, CAT III</span><span>$51.95 × 2</span></div><div class="cartrow" style="margin-bottom:16px"><span>Disposable Nitrile Gloves, 6 mil, 100 ct</span><span>$8.95 × 3</span></div>';
+const WHY='<ul><li><b>Quality Assurance:</b> Every product is rigorously tested to meet or exceed industry standards.</li><li><b>Competitive Pricing:</b> We’ve already priced our products to offer you the best value%X%.</li><li><b>Quick Shipping:</b> We prioritize fast, efficient delivery to get your supplies to you as quickly as possible.</li><li><b>Hassle-Free Returns:</b> If you’re not satisfied, our simple return process ensures peace of mind.</li></ul>';
+const HI='<p>Hi <span class="f">{first_name}</span>,</p>';
+const BTN=t=>'<p style="margin-top:18px"><span class="cta">'+t+'</span></p><p>Best regards,<br>The NorthSky Team</p>';
+const SQ=[
+ ["Did you forget something? Your NorthSky cart is waiting!","We've saved your items - complete your purchase today",
+  HI+'<p>We noticed you left some items in your NorthSky cart. Don’t worry, we’ve saved them for you!</p>'+CART+'<p>At NorthSky, we’re committed to providing you with high-quality MRO supplies that are Built Strong, Priced Right. We’d hate for you to miss out on the products you need.</p>'+BTN('Return to Cart')],
+ ["Why NorthSky? Quality meets affordability in your cart","Discover why customers choose NorthSky for their MRO needs",
+  HI+'<p>We wanted to remind you about the items waiting in your NorthSky cart and share why our customers choose us for their MRO needs:</p><ul><li><b>Uncompromising Quality:</b> Our products meet or exceed industry standards.</li><li><b>Competitive Pricing:</b> High quality doesn’t mean high prices at NorthSky.</li><li><b>Expert Curation:</b> Our team handpicks each product for reliability and value.</li></ul>'+CART+BTN('Complete Your Purchase')],
+ ["Don't miss out on the MRO supplies you need - Your cart is waiting!","Complete your purchase before items become unavailable",
+  HI+'<p>The items in your NorthSky cart are still waiting for you. Our inventory changes based on demand. Don’t risk the items you need becoming unavailable!</p>'+CART+'<p>Here’s why completing your purchase with NorthSky makes sense:</p>'+WHY.replace('%X%',' - no hidden fees or surprises')+BTN('Complete Your Purchase Now')],
+ ["Your NorthSky cart is about to expire","Last chance to secure your selected MRO supplies",
+  HI+'<p>This is your final reminder about the MRO supplies waiting in your NorthSky cart. We want to ensure you don’t miss out on the quality products you’ve selected.</p>'+CART+'<p>Let’s recap why NorthSky is the smart choice for your MRO needs:</p>'+WHY.replace('%X%',' - no hidden fees or surprises')+BTN('Secure Your NorthSky Supplies Now')],
+ ["Special offer: Save 5% on your NorthSky cart items","Limited time: Get 5% off your MRO supplies",
+  HI+'<p>We want to make it even easier to try the MRO supplies waiting in your NorthSky cart. For a limited time, save 5% on your order!</p>'+CART+WHY.replace('%X%',' - plus your special 5% savings')+'<p>Use code <span class="code">SAVE5</span> at checkout to claim your discount.</p>'+BTN('Save 5% on Your Order Now')],
+ ["Final notice: Last chance to save 10% on your NorthSky cart","Don't miss our best discount - 10% off your order",
+  HI+'<p>This is your final reminder about the MRO supplies waiting in your NorthSky cart. We’re offering our best discount of 10% off to help you experience the NorthSky difference.</p>'+CART+'<p>Here’s why thousands of businesses trust NorthSky for their MRO needs:</p>'+WHY.replace('%X%',' - plus your special 10% savings')+'<p>Use code <span class="code">SAVE10</span> at checkout to claim your best possible discount.</p>'+BTN('Complete Your Purchase Now')]];
+function setS(i){const [a,b,c]=SQ[i];document.getElementById('sq-subj').textContent=a;document.getElementById('sq-pre').textContent=b;document.getElementById('sq-body').innerHTML=c;
+ document.querySelectorAll('.seq button').forEach((x,j)=>{x.classList.toggle('on',j==i);x.setAttribute('aria-selected',j==i);});}
+document.querySelectorAll('.seq button').forEach(x=>x.addEventListener('click',()=>{setS(+x.dataset.s);if(window.gtag)gtag('event','cart_sequence_view',{email:+x.dataset.s+1});}));setS(0);
+document.getElementById('tp-link').addEventListener('click',()=>{if(window.gtag)gtag('event','trustpilot_open');});
 </script>
 </body>
 </html>
