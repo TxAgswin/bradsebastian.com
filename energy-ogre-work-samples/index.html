@@ -358,6 +358,16 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
 .stat b{display:block;font:700 34px/1 Fraunces,serif;color:var(--brad);margin-bottom:8px}
 .stat span{font-size:14px;color:var(--ink-2)}
 .subhead{margin-top:56px}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+@media(max-width:900px){.tl{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.tl{grid-template-columns:1fr}}
+.tl div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow);font-size:14px;color:var(--ink-2)}
+.tl .when{display:block;font:700 10px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-2);margin-bottom:6px}
+.tl b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+.tl div.alt{background:#f6f7f9;border-style:dashed}
+.rep{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;margin-top:22px;align-items:stretch}
+@media(max-width:860px){.rep{grid-template-columns:1fr}}
+.stars{color:#fec610;font-size:30px;letter-spacing:4px;margin:6px 0 4px}
 </style>
 </head>
 <body>
@@ -376,7 +386,7 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
 <header class="hero" id="top"><div class="wrap">
   <div class="eyebrow">Marketing Manager application · Energy Ogre</div>
   <h1>Work samples</h1>
-  <p class="lede">Hi Ashley. The posting asked for writing samples, and the application didn't have a spot to upload them, so I put everything together here. You'll find the AI-assisted sample, some blog posts I wrote for NorthSky Supply, a video I created at Raise3D, and the cart recovery and Trustpilot programs I built at NorthSky. My résumé, cover letter and contact info are at the bottom.</p>
+  <p class="lede">Hi Ashley. The posting asked for writing samples, and the application didn't have a spot to upload them, so I put everything together here. You'll find the AI-assisted sample, some blog posts I wrote for NorthSky Supply, a video I created at Raise3D, and the lifecycle and review programs from NorthSky. My résumé, cover letter and contact info are at the bottom.</p>
   <div class="toc four">
     <a href="#ai"><b>01 · AI-assisted sample</b></a>
     <a href="#writing"><b>02 · Writing samples</b></a>
@@ -658,7 +668,7 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
 <section id="lifecycle"><div class="wrap">
   <div class="eyebrow">04 · Lifecycle &amp; trust</div>
   <h2>Lifecycle and trust campaigns</h2>
-  <p class="lede">Two programs I built at NorthSky Supply: a six-email cart recovery sequence in HubSpot, and the Trustpilot review program that backed our trust campaigns in Google Ads and HubSpot.</p>
+  <p class="lede">The NorthSky Supply customer lifecycle, from the first abandoned cart to the reorder and the review: cart and browse recovery in HubSpot and OmniSend, replenishment campaigns, and the Judge.me and Trustpilot review programs that backed our trust campaigns in Google Ads and HubSpot.</p>
 
   <h3 class="subhead">Cart recovery sequence · HubSpot</h3>
   <p class="sub" style="color:var(--ink-2);margin:8px 0 0;max-width:760px">Each email does a different job: remind, prove, create urgency, then add an incentive only at the end. The 5% and 10% offers are held to the last two emails, so the discount is the last lever, not the first. Cart contents pull in from Shopify through the HubSpot integration.</p>
@@ -693,8 +703,50 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
     </div>
   </div>
 
+  <h3 class="subhead">Browse and cart recovery flows · OmniSend</h3>
+  <p class="sub" style="color:var(--ink-2);margin:8px 0 0;max-width:760px">OmniSend ran the always-on Shopify flows. A shopper who viewed a product got a browse reminder; a shopper who left a cart got three emails inside 24 hours, each showing the actual product, price and a one-click return. Timing below is from the emails as they arrived in my inbox.</p>
+  <div class="tl">
+    <div class="alt"><span class="when">Browse · after a product view</span><b>Did something catch your eye? 👀</b>Have another look at your items. "Don't worry, you can pick up right where you left off."</div>
+    <div><span class="when">Cart · hour 0</span><b>Your cart is selling fast!</b>Items in your cart could sell out... Pick up where you left off!</div>
+    <div><span class="when">Cart · about 11 hours later</span><b>Your cart misses you!</b>Your items are still waiting for you.</div>
+    <div><span class="when">Cart · about 24 hours later</span><b>Last call on your cart</b>Don't miss out on these items!</div>
+  </div>
+
+  <h3 class="subhead">Replenishment campaigns</h3>
+  <div class="rep">
+    <p class="sub" style="color:var(--ink-2);margin:0;max-width:640px">Most of what NorthSky sells is consumable: gloves, batteries, tape and other shop supplies. With the product team, I modeled replenishment cycles from purchase history and timed reorder campaigns to each customer's buying window, so the reminder landed when the box was running low instead of on a fixed calendar.</p>
+    <div class="stat"><b>10–12%</b><span>Conversion on reorder campaigns timed to the replenishment window</span></div>
+  </div>
+
+  <h3 class="subhead">Review requests · Judge.me</h3>
+  <p class="sub" style="color:var(--ink-2);margin:8px 0 0;max-width:760px">Delivered orders triggered a product review request, with a discount code for the next purchase in exchange for an honest review. One email collects proof and starts the next order. This one arrived four days after my test order was delivered.</p>
+  <div class="email-stage" style="margin-top:20px">
+    <div>
+      <div class="inbox"><div class="from">NorthSky Supply</div><div class="subj">Leave a review, get a discount!</div><div class="pre">⭐ <span class="f">{first_name}</span>, what did you think about AAA and AA Alkaline Batteries, 48 Pack</div></div>
+      <div class="email"><div class="body mail-body" style="text-align:left">
+        <h3 style="font-size:26px;margin-bottom:14px">What'd ya think?</h3>
+        <p>Hi <span class="f">{first_name}</span>,</p>
+        <p>Now's your chance to share product feedback on your recent order with NorthSky. Leave us a review (good or bad, we can take it) and <b>we'll send you a discount code</b> to use on your next purchase!</p>
+        <p>As a newly established e-commerce business, your feedback helps us offer the very best products and service to customers like you, who are the whole reason we're here.</p>
+        <p>Please leave your thoughts below, and we'll send you your unique code. Thank you!</p>
+        <p>Team NorthSky</p>
+        <div style="text-align:center;border-top:1px solid var(--line);padding-top:16px;margin-top:8px"><b style="font-size:16px">AAA and AA Alkaline Batteries, 48 Pack</b><div class="stars">☆☆☆☆☆</div><span class="small">One click on a star opens the review form</span></div>
+      </div></div>
+    </div>
+    <div class="side">
+      <h4>Why it works</h4>
+      <ul>
+        <li>Asks after delivery, when the product is in hand</li>
+        <li>"Good or bad, we can take it" earns honest reviews</li>
+        <li>The reward is a code for the next order, so the review request doubles as a retention touch</li>
+      </ul>
+      <h4>Shown as sent</h4>
+      <ul><li>Copy is from the Judge.me email as it arrived in December 2025; the customer name is replaced with a placeholder</li></ul>
+    </div>
+  </div>
+
   <h3 class="subhead">Trustpilot review program</h3>
-  <p class="sub" style="color:var(--ink-2);margin:8px 0 0;max-width:760px">I launched NorthSky's Trustpilot program in early 2025 and used the reviews as proof in our Google Ads and HubSpot campaigns. The profile is public and still collecting reviews.</p>
+  <p class="sub" style="color:var(--ink-2);margin:8px 0 0;max-width:760px">I launched NorthSky's Trustpilot program in early 2025 and used the reviews as proof in our Google Ads and HubSpot campaigns. The profile is public and still collecting reviews, and the "Rated Excellent on Trustpilot" badge runs in the site footer on every page.</p>
   <div class="stats">
     <div class="stat"><b>4.3</b><span>TrustScore</span></div>
     <div class="stat"><b>196</b><span>Reviews</span></div>
@@ -720,7 +772,7 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
       <li><a href="Brad_Sebastian_Cover_Letter.pdf" download><span class="doc-name">Cover letter</span><span class="doc-meta">PDF · 1 page</span><span class="doc-dl" aria-hidden="true">↓</span></a></li>
     </ul>
   </div>
-  <p class="small fine-print">The AI-assisted sample is spec work for my Energy Ogre application, and its campaign figures are illustrative. The NorthSky emails and Trustpilot figures are real.</p>
+  <p class="small fine-print">The AI-assisted sample is spec work for my Energy Ogre application, and its campaign figures are illustrative. The NorthSky emails, timing and Trustpilot figures are real.</p>
 </div></footer>
 
 <script>
