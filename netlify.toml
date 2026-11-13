@@ -18,3 +18,8 @@
   from = "/energy-ogre"
   to = "/energy-ogre-work-samples/"
   status = 301
+
+[[redirects]]
+  from = "/nexeo"
+  to = "/nexeo-program-brief/"
+  status = 301
